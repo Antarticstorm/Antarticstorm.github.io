@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration form</title>
+    <link rel="stylesheet" href="external_registration.css">
+</head>
+<body>
+    <Section class="base_form">
+        <h1>Registration Form</h1>
+        <form action="" class="form">
+            <label for="name" class="form_design">Name:</label>
+            <input type="text" name="name" required class="form_box">
+
+            <label for="email" class="form_design">Email:</label>
+            <input type="email" name="email" required class="form_box">
+
+            <label for="Address" class="form_design">Address:</label>
+            <input type="address" name="address" required class="form_box">
+
+            <label for="age" class="form_design">Age:</label>
+            <input type="number" name="age" min="0" required class="form_age">
+
+            <label for="gender" class="form_gender">Gender:</label>
+            <select name="gender" id="gender">
+            <option value="">--Select--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            <option value="prefer_not_say">Prefer not to say</option>
+            </select>
+
+            <label for="Phone Number" class="form_design">Phone Number:</label>
+            <input type="phone" name="number" required class="form_age">
+
+            <label for="File" class="form_file">Insert your file here</label>
+            <input type="file" name="file" required class="form_filebox">
+
+            <label for="Submit" class="form_designbutton"></label>
+            <input type="submit" name="submit" required class="form_button">
+        </form>
+    </Section>
+</body>
+</html>s    
