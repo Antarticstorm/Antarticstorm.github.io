@@ -1,0 +1,76 @@
+body{
+    background-color: #27548A;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+.resume{
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+.rowone {
+    margin-top: 20px;
+    display:flex;
+    justify-content:space-evenly;
+    margin-bottom: 20px;
+}
+.photo-img{
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.contact-information {
+    margin-right: 50px;
+    text-align: right;
+}
+.col-information h3{
+    margin: 0;
+}
+.col-categories h3{
+    margin: 0;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.col-categories h5{
+    margin: 0;
+    font-weight: bold;
+}
+.paragraphbox{
+    margin: 50px 0;
+    padding: 10px;
+    padding-left: 100px;
+    padding-right: 100px;
+    text-align: justify;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    
+}
+.BoxRow {
+    display:flex;
+    justify-content:space-around;
+    margin-bottom: 70px;
+}
+.col-box {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+}
+
+/*Hover*/
+.col-box:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.03);
+    transition: background-color 0.5s, transform 0.5s;
+}
+.photo-img:hover {
+    transform: scale(1.1);
+    transition: transform 0.4s ease-out;
+}
