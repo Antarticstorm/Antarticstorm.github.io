@@ -1,0 +1,36 @@
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: bisque;
+        }
+        h1 {
+            font-size: 30px;
+        }
+        section{
+            text-align: center;
+            padding: 20px;
+        }
+        a {
+
+            margin: 10px;
+        }
+        button {
+            margin-top: 10px;
+            width: 5%;
+            margin-left: 25px;
+        }
+        img {
+            width: 20%;
+        }
+        .infographic img{
+            padding-top: 10px
+        }
+        .infographic{
+            border: 3px solid black;
+            margin-left: 200px;
+            margin-right: 200px;
+            box-shadow: 15px 10px;
+        }
+        .infographic h1 {
+            font-size: 30px;
+        }
