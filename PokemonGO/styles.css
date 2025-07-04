@@ -48,6 +48,13 @@ body {
   font-size: 36px;
   margin-left: 50px;
 }
+.openbtn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
 
 .img-wrapper {
   width: 65px;
@@ -68,4 +75,56 @@ body {
   height: 40px;
   background-color: var(--primary-color);
   border-radius: 5px;
+}
+
+.Mainbody{
+  margin: auto;
+  width: 50%;
+  margin-top: 80px;
+  background-color: var(--accent-color);
+}
+
+/* Footer */
+
+.footer .footer-container {
+  background-color: var(--accent-color);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  gap: 1.5rem;
+  padding-left: 7rem;
+  padding-right: 7rem;
+  padding-top: 5rem;
+  padding-bottom: 3rem;
+}
+
+.square h3 {
+  font-size: 2rem;
+  color: var(--text-color-1);
+  padding: 1rem 0;
+}
+
+.square a {
+  display: block;
+  font-size: 1.2rem;
+  color: var(--text-color-1);
+  padding: 1rem 0;
+}
+
+.square a i {
+  color: var(--text-color-1);
+  padding-right: 0.5rem;
+}
+
+.square a:hover i {
+  padding-right: 2rem;
+}
+
+.footer .credit{
+  padding: 0 1rem;
+  padding-top: 2rem;
+  font-size: 1rem;
+  background-color: var(--accent-color);
+  color: var(--text-color-1);
+  text-align: center; 
+  padding-bottom: 0.6rem;
 }

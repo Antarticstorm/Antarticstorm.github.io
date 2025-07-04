@@ -8,25 +8,58 @@
 </head>
 <body> 
     <!-- Navigation Bar -->
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-    </div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+        </div>
+        <div id="openBtn" class="openbtn">
+            <span onclick="openNav()">
+                <span class="img-wrapper">
+                    <img src="Images/Sidebar.svg" alt="">
+                </span>
+            </span>
+        </div>
 
-    <span class="openbtn" onclick="openNav()">
-        <span class="img-wrapper">
-            <img src="Images/Sidebar.svg" alt="">
-        </span>
-    </span>
+    <!--Main Body-->
+    <Section class="Mainbody">
 
 
-    <footer>
-        <p>&copy; 2023 Pokemon Go. All rights reserved.</p>
-    </footer>
-    
+    </SeCtion>
+
+    <!-- Footer -->
+     
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="square">
+                    <h3>Homepage</h3>
+                    <a href="#magazinefront"><i class="fas fa-arrow-right"></i>What do we do?</a>
+                    <a href="#why"><i class="fas fa-arrow-right"></i>Why HUMSS?</a>
+                    <a href="#services"><i class="fas fa-arrow-right"></i>Our Services</a>
+                    <a href="#Article"><i class="fas fa-arrow-right"></i>Our Articles</a>
+                </div>
+
+                <div class="square">
+                    <h3>Quicklinks</h3>
+                    <a href="MagazineILS.html"><i class="fas fa-arrow-right"></i>Home</a>
+                    <a href="About.html"><i class="fas fa-arrow-right"></i>About Us</a>
+                    <a href="Articles.html"><i class="fas fa-arrow-right"></i>Our Articles</a>
+                </div>
+
+                <div class="square">
+                    <h3>Contact info</h3>
+                        <a href="#"><i class="fas fa-phone"></i>+639784561249</a>
+                        <a href="mailto:HumanitiesHorizon@gmail.com"><i class="fas fa-envelope"></i>HumanitiesHorizon@gmail.com</a>
+                        <a href="mailto:HumanitiesHorizon@yahoo.com"><i class="fas fa-envelope"></i>HumanitiesHorizon@yahoo.com</a>
+                </div>
+            </div>
+
+            <div class="credit">All assests and information herewith are owned by the Pokemon Company©. Copyrights belongs to them. This is for academic purposes only.</div> 
+        </footer>
+
+
     <script src="script.js"></script>
 </body>
 </html>
