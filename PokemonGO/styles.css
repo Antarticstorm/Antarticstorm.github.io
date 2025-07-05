@@ -136,6 +136,12 @@ h1{
   object-fit: cover;
 }
 
+@media (max-width: 600px) {
+  .slideshow-container .mySlides img {
+    height: 40vh;
+  }
+}
+
 
 /* Next & previous buttons */
 .prev, .next {
