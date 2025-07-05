@@ -23,104 +23,109 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// slideshow
-let slideIndex = 0;
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let slideIndex = 0;
+    let slides, dots;
+    let autoSlideTimer;
 
-// Declare variables for slides and dots
-let slides, dots;
-
-// Function to navigate to the next or previous slide
-function plusSlides(position) {
-    // Update the slide index based on the position
-    slideIndex += position;
-
-    // Handle edge cases for exceeding slide boundaries
-    if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    } else if (slideIndex < 0) {
-        slideIndex = slides.length - 1;
+        function handleSwipe() {
+      if (touchEndX < touchStartX - 50) {
+        plusSlides(1); // swipe left
+      }
+      if (touchEndX > touchStartX + 50) {
+        plusSlides(-1); // swipe right
+      }
     }
 
-    // Hide all slides
-    for (let i = 0; i < slides.length; i++) {
+      function handleSwipe() {
+      if (touchEndX < touchStartX - 50) {
+        plusSlides(1); // next slide
+      }
+      if (touchEndX > touchStartX + 50) {
+        plusSlides(-1); // previous slide
+      }
+    }
+
+    // inside DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", () => {
+      initSlides();
+      showSlides();
+
+      const slideshowContainer = document.querySelector(".slideshow") || document;
+      slideshowContainer.addEventListener("touchstart", (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+      });
+      slideshowContainer.addEventListener("touchend", (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+      });
+    });
+
+
+    function initSlides() {
+      slides = document.getElementsByClassName("mySlides");
+      
+      const dotContainer = document.getElementById("dotContainer");
+      dotContainer.innerHTML = ""; // clear any existing
+      dots = [];
+
+      for (let i = 0; i < slides.length; i++) {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.addEventListener("click", () => currentSlide(i));
+        dotContainer.appendChild(dot);
+        dots.push(dot);
+      }
+    }
+
+
+    function plusSlides(position) {
+      clearTimeout(autoSlideTimer); // stop current timer
+      slideIndex += position;
+      showSlide(slideIndex);
+      autoSlideTimer = setTimeout(showSlides, 6000); // restart
+    }
+
+    function currentSlide(index) {
+      clearTimeout(autoSlideTimer); // stop current timer
+      slideIndex = index;
+      showSlide(slideIndex);
+      autoSlideTimer = setTimeout(showSlides, 6000); // restart
+    }
+
+    function showSlide(index) {
+      if (!slides || slides.length === 0) return;
+
+      if (index >= slides.length) slideIndex = 0;
+      if (index < 0) slideIndex = slides.length - 1;
+
+      // Hide all
+      for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
-    }
+      }
 
-    // Remove the "active" class from all dots
-    for (let i = 0; i < dots.length; i++) {
+      for (let i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex].style.display = "block";
+      dots[slideIndex].className += " active";
     }
 
-    // Display the current slide
-    slides[slideIndex].style.display = "block";
-
-    // Add the "active" class to the corresponding dot
-    dots[slideIndex].className += " active";
-}
-
-// Function to navigate to a specific slide
-function currentSlide(index) {
-    // Handle edge cases for exceeding slide boundaries
-    if (index >= slides.length) {
-        index = 0;
-    } else if (index < 0) {
-        index = slides.length - 1;
+    function showSlides() {
+      slideIndex++;
+      showSlide(slideIndex);
+      autoSlideTimer = setTimeout(showSlides, 6000);
     }
 
-    // Hide all slides
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
+    // initialize
+    window.addEventListener("DOMContentLoaded", () => {
+      initSlides();
+      showSlides();
+    });
 
-    // Remove the "active" class from all dots
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    // Display the selected slide
-    slides[index].style.display = "block";
-
-    // Add the "active" class to the corresponding dot
-    dots[index].className += " active";
-}
-
-// Function to initialize and control the slideshow
-function showSlides() {
-    // Get all elements with the class "mySlides" and "dot"
-    slides = document.getElementsByClassName("mySlides");
-    dots = document.getElementsByClassName("dot");
-
-    // Hide all slides initially
-    for (let i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-
-    // Increment the slide index
-    slideIndex++;
-
-    // Handle edge case for exceeding slide boundaries
-    if (slideIndex >= slides.length) {
-        slideIndex = 0;
-    }
-
-    // Remove the "active" class from all dots
-    for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-
-    // Display the current slide
-    slides[slideIndex].style.display = "block";
-
-    // Add the "active" class to the corresponding dot
-    dots[slideIndex].className += " active";
-
-    // Set a timeout to call showSlides every 6 seconds for automatic slideshow
-    setTimeout(showSlides, 6000);
-}
-// Call the showSlides function to start the slideshow
-showSlides();
-
-document.getElementById("backButton").addEventListener("click", function(event) {
-  event.preventDefault();
-  window.history.back();
-});
+    document.getElementById("backButton").addEventListener("click", function(event) {
+      event.preventDefault();
+      window.history.back();
+    });

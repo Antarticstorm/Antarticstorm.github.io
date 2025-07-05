@@ -118,7 +118,7 @@ body {
 	position: relative;
 }
 .slideshow-container .mySlides img{
-  height: 80vh;
+  height: 70vh;
   background-size: cover;
   width: 100%;
   object-fit: cover;
@@ -150,7 +150,7 @@ body {
 
 /* Caption text */
 #slides .text {
-	color: 2f2;
+	color: var(--text-color-1);
 	font-size: 15px;
 	padding: 8px 12px;
 	position: absolute;
@@ -160,11 +160,12 @@ body {
 }
 
 /* The dots */
+      
 .dot {
 	cursor: pointer;
 	height: 15px;
 	width: 15px;
-	margin: 0 2px;
+	margin: 0 3px;
 	background-color: #bbb;
 	border-radius: 50%;
 	display: inline-block;
@@ -173,13 +174,7 @@ body {
 .slideshow .active, .dot:hover {
 	background-color: var(--dot-hover);
 }
-/* Fading animation */
-.fade {
-	-webkit-animation-name: fade;
-	-webkit-animation-duration: 2s;
-	animation-name: fade;
-	animation-duration: 2s;
-}
+
 
 /* Footer */
 
