@@ -125,7 +125,7 @@ body {
 
 /* slides */
 #slide {
-  max-width: 1000px;
+  max-width: 85%;
   margin: 0 auto;
   border: 5px solid;
   border-color: var(--border-color);
@@ -147,12 +147,7 @@ body {
 
 @media (max-width: 600px) {
   .slideshow-container .mySlides img {
-    height: 30vh;
-  }
-}
-@media (max-width: 600px) {
-    #slide {
-    max-width: 80%;
+    height: 35vh;
   }
 }
 
@@ -219,7 +214,7 @@ body {
 .video-container {
   position: relative;
   width: 100%;
-  max-width: 640px;
+  max-width: 896px;
   aspect-ratio: 16/9;
   margin: 20px auto;
   overflow: hidden;
