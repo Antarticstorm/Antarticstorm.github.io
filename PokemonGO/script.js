@@ -136,3 +136,5 @@ document.addEventListener("DOMContentLoaded", () => {
     window.history.back();
   });
 });
+
+// Video Player
