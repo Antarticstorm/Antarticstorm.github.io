@@ -340,16 +340,18 @@ body {
 }
 
 .left {
-  background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe8b6f41cf0.jpg);
+background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe8b6f41cf0.jpg);
  flex:4; background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
   margin-left: 75px;
+  flex:4;
 }
 
 .right {
   background-color: #ffffff; /* Green */
   margin-right: 75px;
+  flex:8;
 }
 
 .about-us-page{
