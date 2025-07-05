@@ -61,7 +61,7 @@ function initSlides() {
   slides = document.getElementsByClassName("mySlides");
 
   const dotContainer = document.getElementById("dotContainer");
-  dotContainer.innerHTML = ""; // clear existing
+  dotContainer.innerHTML = "";
   dots = [];
 
   for (let i = 0; i < slides.length; i++) {
