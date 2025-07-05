@@ -179,9 +179,10 @@ body {
 /* Footer */
 
 .footer .footer-container {
+  overflow: hidden;
   background-color: var(--accent-color);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   gap: 1.5rem;
   padding-left: 7rem;
   padding-right: 7rem;
@@ -204,11 +205,12 @@ body {
 
 .square a i {
   color: var(--text-color-1);
-  padding-right: 0.5rem;
+  padding-right: 1rem;
 }
 
 .square a:hover i {
-  padding-right: 2rem;
+  padding-right: 1rem;
+  margin-right: 1rem;
 }
 
 .footer .credit{
