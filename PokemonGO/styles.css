@@ -8,11 +8,13 @@ body {
 :root {
     --primary-color: #E4E4E4;
     --secondary-color: #f44336;
-    --accent-color: #003d49;
+    --accent-color: #003049;        
     --nav-color: #689BBC;
     --text-color-1: #fff;
     --text-color-2: #000;
+    --dot-hover: #717171;
 }
+
 
 /*Navigation Bar */
 .sidenav {
@@ -130,7 +132,7 @@ body {
 	width: auto;
 	padding: 16px;
 	margin-top: -22px;
-	color: white;
+	color: var(--text-color-1);
 	font-weight: bold;
 	font-size: 45px;
 	transition: 0.6s ease;
@@ -143,12 +145,12 @@ body {
 }
 /* On hover */
 .prev:hover, .next:hover {
-	background-color: rgba(0,0,0,0.8);
+	background-color: var(--text-color-2);
 }
 
 /* Caption text */
 #slides .text {
-	color: #f2f2f2;
+	color: 2f2;
 	font-size: 15px;
 	padding: 8px 12px;
 	position: absolute;
@@ -169,7 +171,7 @@ body {
 	transition: 0.6s ease;
 }
 .slideshow .active, .dot:hover {
-	background-color: #717171;
+	background-color: var(--dot-hover);
 }
 /* Fading animation */
 .fade {
@@ -184,7 +186,7 @@ body {
 .footer .footer-container {
   background-color: var(--accent-color);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
   gap: 1.5rem;
   padding-left: 7rem;
   padding-right: 7rem;
