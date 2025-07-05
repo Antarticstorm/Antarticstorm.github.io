@@ -194,6 +194,7 @@ body {
   font-size: 2rem;
   color: var(--text-color-1);
   padding: 1rem 0;
+  padding-right: 1rem;
 }
 
 .square a {
