@@ -119,8 +119,10 @@ body {
 
 /* slides */
 #slide {
-  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
 .mySlides {
   display: none;
 }
@@ -130,12 +132,12 @@ body {
 .slideshow-container .mySlides img {
   height: clamp(200px, 50vh, 500px);
   width: 100%;
-  object-fit: cover;
+  object-fit:cover;
 }
 
 @media (max-width: 600px) {
   .slideshow-container .mySlides img {
-    height: 40vh;
+    height: 30vh;
   }
 }
 
