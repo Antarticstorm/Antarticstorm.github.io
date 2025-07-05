@@ -12,7 +12,8 @@
     --gradient-background-1: #ffffff;
     --gradient-background-2: #0f224a;
     --border-color:#7bcda4;
-
+    --gradient-background-3:#7bcda4;
+    --gradient-background-4:#17c6c0;
 }
 
 html {
@@ -139,7 +140,7 @@ body {
 .slideshow-container {
   position: relative;
 }
-.slideshow-container .mySlides img {
+.slideshow-container .mySlides img{
   height: clamp(200px, 50vh, 500px);
   width: 100%;
   object-fit: cover;
@@ -312,6 +313,18 @@ body {
   margin-right: clamp(0.5rem, 2vw, 1rem);
 }
 
+.footer .credit {
+  padding: 0 clamp(0.5rem, 2vw, 1rem);
+  padding-top: clamp(1rem, 4vw, 2rem);
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  background-color: var(--accent-color);
+  color: var(--text-color-1);
+  text-align: center;
+  padding-bottom: clamp(0.3rem, 2vw, 0.6rem);
+}
+
+
+/* Split screen area is the About.html*/
 .split-screen {
   display: flex;
   height: 100vh;
@@ -322,8 +335,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
-  color: white;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .left {
@@ -331,9 +344,46 @@ body {
  flex:4; background-repeat: no-repeat;
  background-size: cover;
  background-position: center;
-  
+  margin-left: 75px;
 }
 
 .right {
   background-color: #ffffff; /* Green */
+  margin-right: 75px;
+}
+
+.about-us-page{
+  height:100%;
+}
+
+/* About.html bottom area */
+.about-bottom-area{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-container{
+  margin-left: clamp(1.5rem, 5vw, 250rem);
+  margin-right: clamp(1.5rem, 5vw, 250rem);
+  padding: 3px;
+  text-align: center;
+}
+
+.gradient-container, .gradient-button{
+  border-width:4px;
+  border-style: solid;
+  border-image: linear-gradient(45deg, var(--gradient-background-3), var(--gradient-background-4)) 1;
+}
+
+.gradient-button{
+      padding: 12px 30px;
+      background-color: white;
+      color: black;
+      border: solid;
+      border-radius: 999px;  /* Capsule shape */
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
 }
