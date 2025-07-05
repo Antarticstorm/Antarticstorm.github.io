@@ -44,8 +44,8 @@ body {
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  right: 15px;
+  font-size: 60px;
   margin-left: 50px;
 }
 .openbtn {
@@ -77,11 +77,106 @@ body {
   border-radius: 5px;
 }
 
+.img-wrapper:hover {
+  transform: scale(1.1);
+}
+#openBtn {
+  transition: opacity 0.5s ease-in-out;
+}
+
+#openBtn.hidden {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+
+/* Body */
 .Mainbody{
   margin: auto;
-  width: 50%;
-  margin-top: 80px;
+  width: 100%;
   background-color: var(--accent-color);
+}
+
+/* slides */
+
+.slideshow{
+  background-color: var(--nav-color);
+  padding-bottom: 5rem;
+}
+#slide{
+	width:100%;
+	}
+  
+.mySlides {
+	display: none;
+}
+
+.slideshow-container {
+	position: relative;
+}
+.slideshow-container .mySlides img{
+  height: 80vh;
+  background-size: cover;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	padding: 16px;
+	margin-top: -22px;
+	color: white;
+	font-weight: bold;
+	font-size: 45px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
+}
+/* Position the "next button" to the right */
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
+}
+/* On hover */
+.prev:hover, .next:hover {
+	background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+#slides .text {
+	color: #f2f2f2;
+	font-size: 15px;
+	padding: 8px 12px;
+	position: absolute;
+	bottom: 8px;
+	width: 100%;
+	text-align: center;
+}
+
+/* The dots */
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 2px;
+	background-color: #bbb;
+	border-radius: 50%;
+	display: inline-block;
+	transition: 0.6s ease;
+}
+.slideshow .active, .dot:hover {
+	background-color: #717171;
+}
+/* Fading animation */
+.fade {
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 2s;
+	animation-name: fade;
+	animation-duration: 2s;
 }
 
 /* Footer */
