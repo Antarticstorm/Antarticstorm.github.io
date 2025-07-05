@@ -223,6 +223,15 @@ body {
   border: none;
 }
 
+@media (max-width: 600px) {
+  .video-container {
+    max-width: 90%; 
+    border-radius: 8px;
+    border-width: 2px;
+  }
+}
+
+
 /* Scroll back to top button */
 #myBtn {
   display: none;
