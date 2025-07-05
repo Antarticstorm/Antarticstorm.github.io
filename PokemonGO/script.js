@@ -21,12 +21,13 @@ document.addEventListener("click", (event) => {
   const openBtn = document.getElementById("openBtn");
   const isClickInsideSidebar = sidebar.contains(event.target);
   const isClickOnOpenBtn = openBtn.contains(event.target);
-  const isSidebarOpen = sidebar.style.width !== "0" && sidebar.style.width !== "";
+  const isSidebarOpen = sidebar.classList.contains("open");
 
   if (!isClickInsideSidebar && !isClickOnOpenBtn && isSidebarOpen) {
     closeNav();
   }
 });
+
 
 
 // Slideshow
