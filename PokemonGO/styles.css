@@ -5,15 +5,22 @@
     --nav-color: #ffffff;
     --text-color-1: #fff;
     --text-color-2: #000;
+
+    --tex-color-4: #eb9d0a;
     --dot-hover: #717171;
 
     --gradient-background-1: #ffffff;
     --gradient-background-2: #0f224a;
-    --border-color:#7bcda4; 
+    --border-color:#7bcda4;
+
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-    background-image: linear-gradient(var(--gradient-background-1), var(--gradient-background-2));
+    background-color: var(--gradient-background-1);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -67,7 +74,7 @@ body {
 .img-wrapper {
   width: clamp(50px, 7vw, 60px);
   height: clamp(50px, 7vw, 60px);
-  background-color: var(--nav-color);
+  background-color: var(--gradient-background-2);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +90,7 @@ body {
 .img-wrapper img {
   width: clamp(30px, 7vw, 40px);
   height: clamp(30px, 7vw, 40px);
-  background-color: var(--primary-color);
+  background-color: var(--text-color-1);
   border-radius: 5px;
 }
 
@@ -106,21 +113,18 @@ h1{
   background-color: var(--gradient-background-2);
   margin: 0;
   text-align: center;
+  color: var(--text-color-1);
 }
 /* Body */
 .Mainbody {
   margin: auto;
   width: 100%;
- background-image: linear-gradient(var(--gradient-background-1), var(--gradient-background-2));
 }
 .Mainbody h1 {
   color: var(--text-color-1);
 }
 
 /* slides */
-.slideshow {
-  background-image: linear-gradient(var(--gradient-background-1), var(--gradient-background-2));
-}
 #slide {
   width: 100%;
 }
@@ -199,6 +203,29 @@ h1{
 .slideshow .active,
 .dot:hover {
   background-color: var(--dot-hover);
+}
+
+/* Scroll back to top button */
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 100;
+  font-size: 25px;
+  border: none;
+  outline: none;
+  background-color: #555;
+  color: var(--text-color-1);
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  transition: .20s linear;
+  background-color: #b9b8b8;
+  color: var(--text-color-3);
 }
 
 /* Footer */
