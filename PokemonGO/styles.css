@@ -267,7 +267,15 @@ body {
   color: var(--text-color-3, #333);
 }
 
+/*Wave*/
+#wave {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
 /* Footer */
+
 .footer .footer-container {
   overflow: hidden;
   background-color: var(--accent-color);
