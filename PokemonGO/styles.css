@@ -20,11 +20,17 @@ html {
 }
 
 body {
-    background-color: var(--gradient-background-1);
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  background: linear-gradient(
+    to right,
+    var(--accent-color) 0 5%,
+    var(--gradient-background-1) 5% 95%,
+    var(--accent-color) 90% 100%
+  );
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
+
 
 /* Navigation Bar */
 .sidenav {
@@ -119,8 +125,10 @@ body {
 
 /* slides */
 #slide {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
+  border: 5px solid;
+  border-color: var(--border-color);
 }
 
 .mySlides {
@@ -132,12 +140,19 @@ body {
 .slideshow-container .mySlides img {
   height: clamp(200px, 50vh, 500px);
   width: 100%;
-  object-fit:cover;
+  object-fit: cover;
+  display: block;
 }
+
 
 @media (max-width: 600px) {
   .slideshow-container .mySlides img {
     height: 30vh;
+  }
+}
+@media (max-width: 600px) {
+    #slide {
+    max-width: 80%;
   }
 }
 
@@ -178,7 +193,7 @@ body {
 /* The dots */
 .four-dots {
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -225,7 +240,7 @@ body {
 
 @media (max-width: 600px) {
   .video-container {
-    max-width: 90%; 
+    max-width: 80%; 
     border-radius: 8px;
     border-width: 2px;
   }
