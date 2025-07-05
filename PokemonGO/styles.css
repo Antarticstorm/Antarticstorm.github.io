@@ -52,14 +52,14 @@ body {
 
 .openbtn {
   position: fixed;
-  top: clamp(8px, 3vw, 15px);
-  left: clamp(8px, 3vw, 15px);
+  top: clamp(5px, 3vw, 15px);
+  left: clamp(px, 3vw, 15px);
   z-index: 1000;
 }
 
 .img-wrapper {
-  width: clamp(50px, 8vw, 65px);
-  height: clamp(50px, 8vw, 65px);
+  width: clamp(55px, 8vw, 70px);
+  height: clamp(55px, 8vw, 70px);
   border-radius: 10px;
   background-color: var(--nav-color);
   display: inline-flex;
@@ -72,8 +72,8 @@ body {
 }
 
 .img-wrapper img {
-  width: clamp(30px, 6vw, 40px);
-  height: clamp(30px, 6vw, 40px);
+  width: clamp(35px, 8vw, 45px);
+  height: clamp(35px, 8vw, 45px);
   background-color: var(--primary-color);
   border-radius: 5px;
 }
