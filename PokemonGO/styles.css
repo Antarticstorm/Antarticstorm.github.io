@@ -171,6 +171,15 @@ h1{
 }
 
 /* The dots */
+.four-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
 .dot {
   cursor: pointer;
   height: clamp(10px, 2vw, 20px);
