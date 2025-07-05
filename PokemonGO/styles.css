@@ -163,8 +163,8 @@ body {
       
 .dot {
 	cursor: pointer;
-  height: clamp(10px, 2vw, 20px);
-  width: clamp(10px, 2vw, 20px);
+  height: clamp(15px, 3vw, 20px);
+  width: clamp(15px, 3vw, 20px);
 	margin: 0 3px;
 	background-color: #bbb;
 	border-radius: 50%;
