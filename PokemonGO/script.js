@@ -2,19 +2,18 @@
 
 function openNav() {
   const sidenav = document.getElementById("mySidenav");
-  const openBtn = document.getElementById("openBtn");
-  sidenav.style.width = "250px";
-  openBtn.classList.add("hidden");
+  sidenav.classList.add("open");
+  document.getElementById("openBtn").classList.add("hidden");
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
 }
 
 function closeNav() {
   const sidenav = document.getElementById("mySidenav");
-  const openBtn = document.getElementById("openBtn");
-  sidenav.style.width = "0";
-  openBtn.classList.remove("hidden");
+  sidenav.classList.remove("open");
+  document.getElementById("openBtn").classList.remove("hidden");
   document.body.style.backgroundColor = "white";
 }
+
 
 // Close the sidebar if clicked outside
 document.addEventListener("click", (event) => {

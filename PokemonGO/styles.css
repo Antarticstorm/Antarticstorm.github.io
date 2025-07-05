@@ -26,7 +26,7 @@ body {
   background-color: var(--nav-color);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: clamp(2rem, 6vw, 4rem);
+  padding-top: clamp(1.5rem, 5vw, 3rem);
 }
 
 .sidenav a {
@@ -42,12 +42,15 @@ body {
   color: var(--accent-color);
 }
 
+.sidenav.open {
+  width: clamp(150px, 60vw, 250px);
+}
+
 .sidenav .closebtn {
   position: absolute;
   top: 0;
-  right: clamp(10px, 4vw, 15px);
-  font-size: clamp(2rem, 8vw, 4rem);
-  margin-left: clamp(1rem, 4vw, 3rem);
+   right: clamp(0.5rem, 3vw, 1rem);
+  font-size: clamp(2.5rem, 8vw, 3.5rem);
 }
 
 .openbtn {
@@ -58,8 +61,8 @@ body {
 }
 
 .img-wrapper {
-  width: clamp(55px, 8vw, 70px);
-  height: clamp(55px, 8vw, 70px);
+  width: clamp(50px, 7vw, 60px);
+  height: clamp(5px, 7vw, 60px);
   border-radius: 10px;
   background-color: var(--nav-color);
   display: inline-flex;
@@ -72,8 +75,8 @@ body {
 }
 
 .img-wrapper img {
-  width: clamp(35px, 8vw, 45px);
-  height: clamp(35px, 8vw, 45px);
+  width: clamp(30px, 7vw, 40px);
+  height: clamp(30px, 7vw, 40px);
   background-color: var(--primary-color);
   border-radius: 5px;
 }
