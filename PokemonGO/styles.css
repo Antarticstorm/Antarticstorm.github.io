@@ -2,14 +2,18 @@
     --primary-color: #E4E4E4;
     --secondary-color: #f44336;
     --accent-color: #003049;        
-    --nav-color: #689BBC;
+    --nav-color: #ffffff;
     --text-color-1: #fff;
     --text-color-2: #000;
     --dot-hover: #717171;
+
+    --gradient-background-1: #ffffff;
+    --gradient-background-2: #0f224a;
+    --border-color:#7bcda4; 
 }
 
 body {
-    background-color: var(--primary-color);
+    background-image: linear-gradient(var(--gradient-background-1), var(--gradient-background-2));
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -33,7 +37,7 @@ body {
   padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 2rem);
   text-decoration: none;
   font-size: clamp(1rem, 3vw, 1.5rem);
-  color: var(--text-color-1);
+  color: var(--text-color-2);
   display: block;
   transition: 0.3s;
 }
@@ -63,7 +67,6 @@ body {
 .img-wrapper {
   width: clamp(50px, 7vw, 60px);
   height: clamp(50px, 7vw, 60px);
-  border-radius: 10px;
   background-color: var(--nav-color);
   display: inline-flex;
   align-items: center;
@@ -72,6 +75,9 @@ body {
   top: clamp(5px, 2vw, 10px);
   left: clamp(5px, 2vw, 10px);
   cursor: pointer;
+  border-radius: 20px;
+  border: solid 0.2rem;
+  border-color: var(--border-color);
 }
 
 .img-wrapper img {
@@ -95,17 +101,25 @@ body {
   pointer-events: none;
 }
 
+/*Header*/
+h1{
+  background-color: var(--gradient-background-2);
+  margin: 0;
+  text-align: center;
+}
 /* Body */
 .Mainbody {
   margin: auto;
   width: 100%;
-  background-color: var(--accent-color);
+ background-image: linear-gradient(var(--gradient-background-1), var(--gradient-background-2));
+}
+.Mainbody h1 {
+  color: var(--text-color-1);
 }
 
 /* slides */
 .slideshow {
-  background-color: var(--nav-color);
-  padding-bottom: clamp(2rem, 5vw, 5rem);
+  background-image: linear-gradient(var(--gradient-background-1), var(--gradient-background-2));
 }
 #slide {
   width: 100%;
