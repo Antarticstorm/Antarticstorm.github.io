@@ -254,7 +254,7 @@ body {
   font-size: clamp(1rem, 2.5vw, 1.5rem);
   border: none;
   outline: none;
-  background-color: #555;
+  background-color: var(--border-color);
   color: var(--text-color-1);
   cursor: pointer;
   padding: clamp(10px, 3vw, 20px);
