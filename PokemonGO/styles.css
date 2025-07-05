@@ -312,12 +312,28 @@ body {
   margin-right: clamp(0.5rem, 2vw, 1rem);
 }
 
-.footer .credit {
-  padding: 0 clamp(0.5rem, 2vw, 1rem);
-  padding-top: clamp(1rem, 4vw, 2rem);
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  background-color: var(--accent-color);
-  color: var(--text-color-1);
-  text-align: center;
-  padding-bottom: clamp(0.3rem, 2vw, 0.6rem);
+.split-screen {
+  display: flex;
+  height: 100vh;
+}
+
+.left, .right {
+  flex: 1; /* Equal width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: white;
+}
+
+.left {
+  background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe8b6f41cf0.jpg);
+ flex:4; background-repeat: no-repeat;
+ background-size: cover;
+ background-position: center;
+  
+}
+
+.right {
+  background-color: #ffffff; /* Green */
 }
