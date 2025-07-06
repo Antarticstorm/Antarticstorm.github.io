@@ -436,41 +436,6 @@ body {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
 }
 
-.team-go-rocket-section .right-panel {
-  flex: 1 1 400px;
-  position: relative;
-  max-width: 600px;
-  aspect-ratio: 4 / 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.team-go-rocket-section .nav-buttons {
-  position: absolute;
-  top: 40%;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  transform: translateY(-50%);
-  padding: 0 1rem;
-}
-
-.team-go-rocket-section .nav-buttons button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.2rem 0.8rem;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.team-go-rocket-section .nav-buttons button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
 .rocket-slider {
   position: relative;
   width: 100%;
