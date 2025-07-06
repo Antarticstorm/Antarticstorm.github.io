@@ -44,7 +44,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: var(--accent-color);
+  background-color: var(--gradient-background-4);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: clamp(1.5rem, 5vw, 4rem);
@@ -63,7 +63,7 @@ body {
 }
 
 .sidenav a:hover {
-  color: var(--gradient-background-3);
+  color: var(--text-color-2);
 }
 
 .sidenav.open {
@@ -133,10 +133,12 @@ body {
     padding-bottom: clamp(3.5rem, 4vw, 5rem);
 }
 #slide {
-  max-width: 85%;
+  max-width: 94%;
   margin: 0 auto;
-  border: 5px solid;
-  border-color: var(--border-color);
+  border: 5px solid var(--border-color);
+  border-top:var(--border-color); ;
+  border-left: var(--border-color);
+  border-right: var(--border-color);
 }
 
 .mySlides {
@@ -153,7 +155,11 @@ body {
   display: block;
 }
 
-
+@media (max-width: 768px) {
+  #slide{
+    max-width: 100%;
+  }
+}
 @media (max-width: 600px) {
   .slideshow-container .mySlides img {
     height: 35vh;
