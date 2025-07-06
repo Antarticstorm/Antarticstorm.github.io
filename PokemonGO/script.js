@@ -113,6 +113,28 @@ function showSlides() {
   autoSlideTimer = setTimeout(showSlides, 5000);
 }
 
+// Team GO Rocket Slider
+let rocketSlides = [];
+let rocketIndex = 0;
+
+function showRocketSlide(index) {
+  rocketSlides.forEach(slide => slide.classList.remove("active"));
+  if (index >= rocketSlides.length) rocketIndex = 0;
+  if (index < 0) rocketIndex = rocketSlides.length - 1;
+  rocketSlides[rocketIndex].classList.add("active");
+}
+
+function nextRocketSlide() {
+  rocketIndex++;
+  showRocketSlide(rocketIndex);
+}
+
+function prevRocketSlide() {
+  rocketIndex--;
+  showRocketSlide(rocketIndex);
+}
+
+
 
 // DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
@@ -133,6 +155,23 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
     window.history.back();
   });
-});
 
-// Video Player
+  // Initialize Team GO Rocket slider
+  rocketSlides = Array.from(document.querySelectorAll(".rocket-slide"));
+  showRocketSlide(rocketIndex);
+
+  document.getElementById("rocketNextBtn")?.addEventListener("click", nextRocketSlide);
+  document.getElementById("rocketPrevBtn")?.addEventListener("click", prevRocketSlide);
+
+  // Touch events for Team GO Rocket slider
+  const rocketContainer = document.querySelector(".rocket-slider");
+  rocketContainer?.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  rocketContainer?.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchEndX - touchStartX;
+    if (swipeDistance < -50) nextRocketSlide();
+    else if (swipeDistance > 50) prevRocketSlide();
+  });
+});
