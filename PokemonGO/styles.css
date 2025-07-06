@@ -1,17 +1,15 @@
 :root {
-    --primary-color: #E4E4E4;
-    --secondary-color: #f44336;
     --accent-color: #003049;        
     --nav-color: #ffffff;
     --text-color-1: #fff;
     --text-color-2: #000;
-
-    --tex-color-4: #eb9d0a;
+    --text-color-3: #eb9d0a;
+    --text-color-4: #0f4f5a;
+    --text-color-5: #fff050;
     --dot-hover: #717171;
-
+    --border-color:#7bcda4;
     --gradient-background-1: #ffffff;
     --gradient-background-2: #0f224a;
-    --border-color:#7bcda4;
     --gradient-background-3:#7bcda4;
     --gradient-background-4:#17c6c0;
 }
@@ -81,7 +79,7 @@ body {
 .img-wrapper {
   width: clamp(50px, 7vw, 60px);
   height: clamp(50px, 7vw, 60px);
-  background-color: var(--gradient-background-2);
+  background-color: var(--gradient-background-1);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -122,11 +120,10 @@ body {
   flex-direction: column;
 }
 
-.Mainbody h1 {
-  color: var(--text-color-1);
-}
-
 /* slides */
+.slideshow {
+    padding-bottom: clamp(3.5rem, 4vw, 5rem);
+}
 #slide {
   max-width: 85%;
   margin: 0 auto;
@@ -139,6 +136,7 @@ body {
 }
 .slideshow-container {
   position: relative;
+
 }
 .slideshow-container .mySlides img{
   height: clamp(200px, 50vh, 500px);
@@ -214,6 +212,51 @@ body {
 }
 
 /* Video Player */
+.video-title-wrapper {
+  padding-left: clamp(1rem, 4vw, 6rem);
+  padding-right: clamp(1rem, 4vw, 6rem);
+  display: flex;
+  justify-content: center;
+}
+
+.video-player-title {
+  transition: all 0.3s ease-in-out;
+  color: var(--text-color-1);
+  text-align: center;
+
+  font-size: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(0.75rem, 2vw, 2rem) clamp(1rem, 4vw, 2rem);
+
+  background-image: linear-gradient(
+    to left,
+    var(--gradient-background-3),
+    var(--gradient-background-4)
+  );
+  box-shadow: var(--gradient-background-4) 12px 12px 0px;
+  display: inline-block;
+  word-break: break-word;
+  max-width: 100%;
+}
+.video-player-title:hover {
+  color: var(--text-color-5);
+  box-shadow: var(--gradient-background-4) 20px 20px 0px;
+  transform: translate(-5px, -3px);
+}
+
+@media (max-width: 500px) {
+  .video-player-title {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    box-shadow: var(--gradient-background-4) 0px 0px 0px;
+  }
+  .video-player-title:hover {
+    transform: none;
+    box-shadow: none;
+    color: var(--text-color-1);
+    scale: 1.02;
+  }
+}
+
 .video-container {
   position: relative;
   width: 100%;
@@ -236,7 +279,7 @@ body {
   border: none;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
   .video-container {
     max-width: 80%; 
     border-radius: 8px;
@@ -264,8 +307,8 @@ body {
 
 #myBtn:hover {
   transition: 0.2s linear;
-  background-color: #b9b8b8;
-  color: var(--text-color-3, #333);
+  background-color: var(--gradient-background-4);
+  color: var(--text-color-2);
 }
 
 /*Wave*/
