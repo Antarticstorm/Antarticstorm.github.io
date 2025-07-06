@@ -39,27 +39,30 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: var(--nav-color);
+  background-color: var(--accent-color);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: clamp(1.5rem, 5vw, 3rem);
+  padding-top: clamp(1.5rem, 5vw, 4rem);
 }
 
+
+
 .sidenav a {
-  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 5vw, 2rem);
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 4vw, 1rem);
   text-decoration: none;
-  font-size: clamp(1rem, 3vw, 1.5rem);
-  color: var(--text-color-2);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  color: var(--text-color-1);
   display: block;
   transition: 0.3s;
+  border-radius: 5px;
 }
 
 .sidenav a:hover {
-  color: var(--accent-color);
+  color: var(--gradient-background-3);
 }
 
 .sidenav.open {
-  width: clamp(150px, 60vw, 250px);
+  width: clamp(100px, 50vw, 250px);
 }
 
 .sidenav .closebtn {
