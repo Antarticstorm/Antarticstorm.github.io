@@ -162,7 +162,6 @@ body {
   }
 }
 
-
 /* Next & previous buttons */
 .prev, .next {
   cursor: pointer;
@@ -311,7 +310,54 @@ body {
   }
 }
 
+/*Image with Text on the side */
+.content-side-image {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 5rem 15rem 5rem 15rem; 
+}
 
+.content-side-image .image,
+.content-side-image .First-paragraph {
+  flex: 1 1 45%;
+  max-width: 100%;
+}
+
+.content-side-image .image img {
+  width: 100%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 10px 10px 0px var(--gradient-background-2);
+}
+
+.content-side-image .First-paragraph h2 {
+  font-size: 3rem;
+  color: var(--text-color-2);
+  margin-bottom: 1rem;
+}
+
+.content-side-image .First-paragraph p {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  text-align: justify;
+  color: var(--text-color-2);
+}
+
+.content-side-image.reverse {
+  background-color: var(--accent-color);
+}
+.content-side-image.reverse h2 {
+  color: var(--text-color-1);
+}
+.content-side-image.reverse p {
+  color: var(--text-color-1);
+}
+.content-side-image.reverse .image img {
+  box-shadow: 10px 10px 0px var(--text-color-4);
+}
 /* Scroll back to top button */
 #myBtn {
   display: none;
