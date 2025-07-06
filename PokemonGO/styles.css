@@ -127,13 +127,10 @@ body {
 }
 
 /* slides */
-.slideshow {
-    padding-bottom: clamp(3.5rem, 4vw, 5rem);
-}
 #slide {
   max-width: 100%;
   margin: 0 auto;
-  border: 5px solid var(--border-color);
+  border: 10px solid var(--border-color);
   border-top:var(--border-color); ;
   border-left: var(--border-color);
   border-right: var(--border-color);
@@ -244,7 +241,7 @@ body {
   transition: all 0.3s ease-in-out;
   color: var(--text-color-1);
   text-align: center;
-  font-size: clamp(1.5rem, 4vw, 4rem);
+  font-size: clamp(1.4rem, 4vw, 4rem);
   padding: clamp(0.75rem, 2vw, 2rem) clamp(1rem, 4vw, 2rem);
   background-image: linear-gradient(
     to left,
@@ -264,7 +261,7 @@ body {
 
 @media (max-width: 500px) {
   .video-player-title {
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 1rem 2rem;
     box-shadow: var(--gradient-background-4) 0px 0px 0px;
   }
