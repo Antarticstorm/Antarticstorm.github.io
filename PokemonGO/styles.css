@@ -29,7 +29,12 @@ body {
   margin: 0;
   padding: 0;
 }
-
+@media screen and (max-width: 768px) {
+  body {
+    background: var(--gradient-background-1)
+  }
+  
+}
 
 /* Navigation Bar */
 .sidenav {
