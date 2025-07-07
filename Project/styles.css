@@ -138,6 +138,7 @@ body {
 
 .mySlides {
   display: none;
+    transition: 0.3s;
 }
 .slideshow-container {
   position: relative;
@@ -175,6 +176,7 @@ body {
   padding: clamp(8px, 2vw, 16px);
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
+
 }
 @media (max-width: 600px) {
   .prev, .next {
@@ -537,16 +539,6 @@ body {
   background-color: var(--gradient-background-4);
   color: var(--text-color-2);
 }
-
-/*Wave*/
-#wave {
-    width: 100%;
-    height: auto;
-    display: block;
-    background-color: var(--gradient-background-2);
-}
-
-
 
 /* Footer */
 
