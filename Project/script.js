@@ -140,7 +140,8 @@ function prevRocketSlide() {
 // DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   initSlides();
-  showSlides();
+  showSlide(slideIndex);
+  autoSlideTimer = setTimeout(showSlides, 5000);
 
   const slideshowContainer = document.querySelector(".slideshow");
   slideshowContainer?.addEventListener("touchstart", (e) => {
@@ -176,4 +177,3 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (swipeDistance > 50) prevRocketSlide();
   });
 });
-
