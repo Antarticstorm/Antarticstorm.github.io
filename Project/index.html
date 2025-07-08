@@ -100,6 +100,35 @@
                 </div>
         </section>
 
+    <!-- Newsletter -->
+
+        <!-- Toast Notification -->
+            <div id="toast" class="toast">Subscribed successfully!</div>
+
+            <section class="newsletter" id="newsletter">
+            <div class="newsletter-container">
+                <div class="newsletter-image">
+                <img src="Images/Trainers/trainer-1.png" alt="Trainer" />
+                </div>
+                <form onsubmit="event.preventDefault(); validateAndSubscribe();">
+                <h3>📬 Stay Updated</h3>
+                <p class="subtext">Join our mailing list and never miss out on new content.</p>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    id="emailInput"
+                    class="box"
+                    required
+                />
+                <div class="subscribe-btn-container">
+                    <button type="submit" id="subscribe-text">Subscribe</button>
+                </div>
+                </form>
+            </div>
+            </section>
+
+
     <!-- Team GO Rocket Slider -->
         <section class="team-go-rocket-section">
             <div class="container">

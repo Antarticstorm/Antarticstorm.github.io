@@ -177,3 +177,40 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (swipeDistance > 50) prevRocketSlide();
   });
 });
+
+// Newsletter Subscription
+
+function validateAndSubscribe() {
+  const emailInput = document.getElementById('emailInput');
+  const email = emailInput.value.trim();
+  const subscribeBtn = document.getElementById('subscribe-text');
+  const toast = document.getElementById('toast');
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    emailInput.focus();
+    return;
+  }
+
+  // Update subscribe button
+  subscribeBtn.textContent = 'Subscribed';
+  subscribeBtn.style.cursor = 'default';
+  subscribeBtn.disabled = true;
+  emailInput.disabled = true;
+
+  // Show toast
+  showToast("🎉 You’re now subscribed!");
+}
+
+function showToast(message = "Subscribed successfully!") {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 6000);
+}
+
