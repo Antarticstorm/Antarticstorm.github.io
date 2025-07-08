@@ -44,7 +44,11 @@ body {
   z-index: 10;
   top: 0;
   left: 0;
-  background-color: var(--gradient-background-4);
+  background-image: linear-gradient(
+    to bottom,
+    var(--gradient-background-4) 0%,
+    var(--gradient-background-3) 100%
+  );
   overflow-x: hidden;
   transition: .5s;
   padding-top: clamp(1.5rem, 5vw, 4rem);
@@ -465,7 +469,7 @@ body {
 
 /*Transparent slideshow*/
 .team-go-rocket-section {
-  padding: clamp(2rem, 5vw, 5rem) clamp(1rem, 4vw, 6rem);
+  padding: clamp(0.8rem, 3vw, 1.5rem) clamp(1rem, 4vw, 5rem);
   background-color: var(--gradient-background-2);
   display: flex;
   justify-content: center;
@@ -473,13 +477,34 @@ body {
 }
 
 .team-go-rocket-section .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 650px;
   align-items: center;
+  gap: clamp(1rem, 4vw, 3rem);
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: 0;
+}
+@media (max-width: 768px) {
+  .team-go-rocket-section .container {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+  }
+
+  .team-go-rocket-section .left-panel {
+    max-width: 100%;
+  }
+
+  .rocket-slider {
+    max-width: 100%;
+    margin: 1rem auto 0 auto;
+  }
+
+  .rocket-slide img {
+    max-width: 80%;
+  }
 }
 
 .team-go-rocket-section .left-panel {
@@ -488,44 +513,52 @@ body {
 }
 
 .team-go-rocket-section .rocket-icon {
-  background-color: crimson;
-  color: white;
+  background-color: white;
+  color:crimson;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: clamp(4.5rem, 5vw, 5rem);
   display: inline-block;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border-radius: 50%;
+  width: clamp(5rem, 8vw, 6rem);
+  height: clamp(5rem, 8vw, 6rem);
+  text-align: center;
+  margin-bottom: clamp(0.5rem, 3vw, 1rem);
 }
 
 .team-go-rocket-section .left-panel h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
-  margin-bottom: 1rem;
+  font-size: clamp(2.5rem, 5vw, 4rem);
   color: var(--text-color-1);
+  margin: auto;
 }
 
 .team-go-rocket-section .left-panel p {
   color: var(--text-color-1);
   line-height: 1.6;
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
 }
 
 .rocket-slider {
   position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 1rem auto;
   background-color: var(--gradient-background-1);
-  border: 4px solid var(--border-color);
-  border-radius: 1rem;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border: 4px solid var(--text-color-1);
+  border-radius: 0.5rem;
+  box-shadow: 5px 10px 10px var(--gradient-background-2);
   overflow: hidden;
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .rocket-slide {
   display: none;
   text-align: center;
-  background-color: var(--gradient-background-3);
+  background-image: linear-gradient(
+    to bottom,
+    var(--gradient-background-3) 0%,
+    var(--gradient-background-4) 100%
+  );
   color: var(--text-color-1);
   height: 100%;
 }
@@ -561,7 +594,6 @@ body {
   word-break: break-word;   
   line-height: 1.3;
 }
-
 
 .rocket-nav-buttons {
   margin-top: clamp(0.5rem, 3vw, 1rem);
@@ -674,7 +706,7 @@ body {
 .footer .credit {
   padding: 0 clamp(0.5rem, 2vw, 1rem);
   padding-top: clamp(1rem, 4vw, 2rem);
-  font-size: clamp(0.8rem, 2vw, 1rem);
+  font-size: clamp(0.4rem, 2vw, 0.9rem);
   background-color: var(--accent-color);
   color: var(--text-color-1);
   text-align: center;

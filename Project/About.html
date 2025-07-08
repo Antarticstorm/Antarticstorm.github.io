@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Go</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Images/LogoIcon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
+<body> 
     <!-- Navigation Bar -->
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button class="closebtn" onclick="closeNav()">&times;</button>
+            <div class="logo-container">
+            <img src="Images/Logo.png" alt="Logo" class="nav-logo" />
+            </div>
+
             <a href="index.html">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="#">Shop</a>
+
+            <div class="action-buttons">
+            <a href="#" class="register-btn">Register</a>
+            <a href="#" class="login-btn">Login</a>
+            </div>
         </div>
         <div id="openBtn" class="openbtn">
             <span onclick="openNav()">
                 <span class="img-wrapper">
-                    <img src="Images/Sidebar.svg" alt="">
+                    <img src="Images/Sidebar.svg" alt="Side bar">
                 </span>
             </span>
         </div>
@@ -50,37 +57,35 @@
             </div>
         </div>
 
-  <!-- Footer -->
+    <!-- Footer -->
+
         <footer class="footer">
             <div class="footer-container">
                 <div class="square">
                     <h3>Homepage</h3>
-                    <a href="#magazinefront"><i class="fas fa-arrow-right"></i>What do we do?</a>
-                    <a href="#why"><i class="fas fa-arrow-right"></i>Why HUMSS?</a>
-                    <a href="#services"><i class="fas fa-arrow-right"></i>Our Services</a>
-                    <a href="#Article"><i class="fas fa-arrow-right"></i>Our Articles</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i>Store</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i>About Us</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i>Cart</a>
                 </div>
                 <div class="square">
                     <h3>Contact info</h3>
-                    <a href="#"><i class="fas fa-phone"></i>+639784561249</a>
-                    <a href="mailto:HumanitiesHorizon@gmail.com"><i class="fas fa-envelope"></i>HumanitiesHorizon@gmail.com</a>
-                    <a href="mailto:HumanitiesHorizon@yahoo.com"><i class="fas fa-envelope"></i>HumanitiesHorizon@yahoo.com</a>
+                    <a><i class="fas fa-phone"></i>+09886732801</a>
+                    <a><i class="fas fa-envelope"></i>DJBJ@gmail.com</a>
+                    <a><i class="fas fa-envelope"></i>DoroteoJoseBukoJuice@gmail.com</a>
                 </div>
-                <div class="square">
-                    <a > <img src="" alt=""></a>
+                <div class="square logo-square">
+                    <a href="#"><img src="Images/Logo.png" alt="Logo" class="footer-logo"></a>
                 </div>
             </div>
 
-            <div class="credit">All assests and information herewith are owned by the Pokemon Company ©. <br>   Copyrights belongs to them. This is for academic purposes only.
+            <div class="credit">All assests and information herewith are owned by the Pokemon Company ©. <br> Copyrights belongs to them. This is for academic purposes only.
             </div> 
         </footer>
 
-        <!-- Top button -->
+    <!-- Top button -->
         <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
     
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>AOS.init();</script>
+    <!-- JavaScript -->
     <script src="script.js"></script>
-
 </body>
 </html>
