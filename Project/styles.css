@@ -365,7 +365,8 @@ body {
   margin: 20px auto;
   overflow: hidden;
   border-radius: 12px;
-  box-shadow: 15px 15px 0px var(--text-color-4);
+  box-shadow: 15px 15px 0px var(--gradient-background-3) ,
+              -15px -15px 0px var(--text-color-3);
   border: 4px solid var(--border-color);
 }
 
@@ -408,13 +409,16 @@ body {
   width: 100%;
   display: block;
   margin: 0 auto;
-  box-shadow: 10px 10px 0px var(--gradient-background-2);
+  box-shadow: 20px 20px 0px var(--gradient-background-2), 
+              -20px -20px 0px var(--text-color-3);
 }
-
 .content-side-image .First-paragraph h2 {
-  font-size: clamp(1rem, 4vw, 2.5rem);
+  font-size: clamp(3rem, 5vw, 10rem);
   color: var(--text-color-2);
   margin-bottom: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  text-shadow: 10px 0px 0px var(--text-color-4), -10px 0px 0px var(--text-color-3);
 }
 
 .content-side-image .First-paragraph p {
@@ -422,6 +426,7 @@ body {
   padding-top: 1rem;
   text-align: justify;
   color: var(--text-color-2);
+
 }
 
 .content-side-image.reverse {
@@ -434,7 +439,8 @@ body {
   color: var(--text-color-1);
 }
 .content-side-image.reverse .image img {
-  box-shadow: 10px 10px 0px var(--text-color-4);
+  box-shadow: 20px 20px 0px var(--text-color-3), 
+              -20px -20px 0px var(--gradient-background-4);;
 }
 @media (max-width: 600px) {
   .content-side-image {
@@ -626,7 +632,7 @@ body {
 /* News letter */
 
 .newsletter {
-  padding: clamp(2rem, 5vw, 4rem);
+  padding: clamp(2rem, 5vw, 3rem);
   background-color: var(--gradient-background-1);
 }
 
@@ -634,12 +640,10 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  gap: clamp(2rem, 4vw, 5rem);
+  gap: clamp(2rem, 4vw, 4rem);
   max-width: 1200px;
   margin: 0 auto;
   padding: clamp(1rem, 5vw, 4rem);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
   border-radius: 2rem;
   box-shadow: 15px 15px 0px var(--accent-color);
   border: 0.2rem solid var(--accent-color);
@@ -665,17 +669,16 @@ form h3 {
   color: var(--text-color-1);
   font-weight: 700;
   background-color: var(--gradient-background-2);
-  padding: 0.75rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   border-radius: 12px;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 4px 4px 0px var(--dot-hover);
 }
 
 form .subtext {
-  font-size: clamp(1rem, 2vw, 1.2rem);
-  color: var(--text-color-1);
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: var(--text-color-2);
   opacity: 0.85;
-  margin-bottom: 0.5rem;
 }
 
 form .box {
