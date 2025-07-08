@@ -86,10 +86,13 @@ function showSlide(index) {
   if (index >= slides.length) slideIndex = 0;
   if (index < 0) slideIndex = slides.length - 1;
 
-  Array.from(slides).forEach((slide) => (slide.style.display = "none"));
+  Array.from(slides).forEach((slide) => {
+    slide.classList.remove("active");
+  });
+
   dots.forEach((dot) => dot.classList.remove("active"));
 
-  slides[slideIndex].style.display = "block";
+  slides[slideIndex].classList.add("active");
   dots[slideIndex].classList.add("active");
 }
 
