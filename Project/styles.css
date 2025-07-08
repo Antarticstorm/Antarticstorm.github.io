@@ -486,7 +486,11 @@ body {
   margin-left: auto;
   margin-right: 0;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .team-go-rocket-section .container .rocket-slider {
+    margin: 2rem auto 0 auto;
+    justify-self: center;
+  }
   .team-go-rocket-section .container {
     grid-template-columns: 1fr;
     justify-items: center;
@@ -494,18 +498,15 @@ body {
   }
 
   .team-go-rocket-section .left-panel {
-    max-width: 100%;
-  }
-
-  .rocket-slider {
-    max-width: 100%;
-    margin: 1rem auto 0 auto;
+    max-width: 80%;
+    margin: 0 auto;
   }
 
   .rocket-slide img {
-    max-width: 80%;
+    max-width: 70%;
   }
 }
+
 
 .team-go-rocket-section .left-panel {
   flex: 1 1 400px;
@@ -519,14 +520,14 @@ body {
   font-size: clamp(4.5rem, 5vw, 5rem);
   display: inline-block;
   border-radius: 50%;
-  width: clamp(5rem, 8vw, 6rem);
-  height: clamp(5rem, 8vw, 6rem);
+  width: clamp(5rem, 7vw, 6rem);
+  height: clamp(5rem, 7vw, 6rem);
   text-align: center;
   margin-bottom: clamp(0.5rem, 3vw, 1rem);
 }
 
 .team-go-rocket-section .left-panel h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
   color: var(--text-color-1);
   margin: auto;
 }
@@ -534,7 +535,7 @@ body {
 .team-go-rocket-section .left-panel p {
   color: var(--text-color-1);
   line-height: 1.6;
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
 }
 
 .rocket-slider {
@@ -698,6 +699,16 @@ body {
   display: block;
   filter: drop-shadow(10px 5px 0 var(--text-color-4));
   transition: 0.3s;
+}
+@media (max-width: 585px) {
+  .logo-square {
+    grid-column: 1 / -1;
+    justify-content: center;
+  }
+
+  .footer-logo {
+    margin: 0 auto;
+  }
 }
 .footer-logo:hover {
   transform: scale(1.03);
