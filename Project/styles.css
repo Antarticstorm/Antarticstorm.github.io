@@ -63,12 +63,13 @@ body {
   margin: clamp(0.5rem, 2vw, 1rem);
   font-weight: bold;
   text-align: center;
-  box-shadow: 3px 5px 0px var(--text-color-4);
+  box-shadow: 5px 5px 0px var(--text-color-4);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .sidenav a:hover {
+  transform: scale(1.01);
   color: var(--text-color-4);
   border: var(--gradient-background-1) solid 0.2rem;
   background: linear-gradient(
@@ -203,7 +204,7 @@ body {
 
 .mySlides {
   display: none;
-    transition: 0.3s;
+  transition: 0.3s;
 }
 .slideshow-container {
   position: relative;
@@ -584,7 +585,6 @@ body {
 
 /* Scroll back to top button */
 #myBtn {
-  display: none;
   position: fixed;
   bottom: clamp(10px, 4vw, 30px);
   right: clamp(10px, 4vw, 30px);
@@ -597,12 +597,22 @@ body {
   cursor: pointer;
   padding: clamp(10px, 3vw, 20px);
   border-radius: clamp(4px, 1vw, 8px);
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#myBtn.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 #myBtn:hover {
-  transition: 0.2s linear;
   background-color: var(--gradient-background-4);
   color: var(--text-color-2);
+  transform: scale(1.05);
 }
 
 /* Footer */

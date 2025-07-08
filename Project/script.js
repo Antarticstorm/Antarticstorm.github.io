@@ -34,10 +34,10 @@ window.onscroll = function() {
 };
 
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    mybutton.classList.add("show");
   } else {
-    mybutton.style.display = "none";
+    mybutton.classList.remove("show");
   }
 }
 
@@ -134,8 +134,6 @@ function prevRocketSlide() {
   showRocketSlide(rocketIndex);
 }
 
-
-
 // DOM Ready
 document.addEventListener("DOMContentLoaded", () => {
   initSlides();
@@ -175,3 +173,4 @@ document.addEventListener("DOMContentLoaded", () => {
     else if (swipeDistance > 50) prevRocketSlide();
   });
 });
+
