@@ -203,39 +203,32 @@ body {
 }
 
 .mySlides {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
   opacity: 0;
+  position: absolute;
+  inset: 0;
   transition: opacity 1s ease;
   z-index: 0;
 }
 .slideshow-container {
   position: relative;
-  height: clamp(200px, 50vh, 600px);
+  width: 100%;
   overflow: hidden;
-
 }
 .slideshow-container .mySlides img{
   width: 100%;
+  height: clamp(200px, 50vw, 500px);
   object-fit: cover;
   display: block;
 }
 .mySlides.active {
   opacity: 1;
+  position: relative;
   z-index: 1;
 }
 @media (max-width: 768px) {
   #slide{
     max-width: 100%;
-  }
-}
-@media (max-width: 600px) {
-  .slideshow-container .mySlides img {
-    height: 30vh;
-    object-fit: cover;
   }
 }
 
