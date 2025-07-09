@@ -409,16 +409,16 @@ body {
   width: 100%;
   display: block;
   margin: 0 auto;
-  box-shadow: 20px 20px 0px var(--gradient-background-2), 
-              -20px -20px 0px var(--text-color-3);
+  box-shadow: 15px 15px 0px var(--gradient-background-2), 
+              -15px -15px 0px var(--text-color-3);
 }
 .content-side-image .First-paragraph h2 {
-  font-size: clamp(3rem, 5vw, 10rem);
+  font-size: clamp(3rem, 5vw, 6rem);
   color: var(--text-color-2);
   margin-bottom: 1rem;
   text-transform: uppercase;
   text-align: center;
-  text-shadow: 10px 0px 0px var(--text-color-4), -10px 0px 0px var(--text-color-3);
+  text-shadow: 5px 0px 0px var(--text-color-4), -5px 0px 0px var(--text-color-3);
 }
 
 .content-side-image .First-paragraph p {
@@ -439,8 +439,8 @@ body {
   color: var(--text-color-1);
 }
 .content-side-image.reverse .image img {
-  box-shadow: 20px 20px 0px var(--text-color-3), 
-              -20px -20px 0px var(--gradient-background-4);;
+  box-shadow: 15px 15px 0px var(--text-color-3), 
+              -15px -15px 0px var(--gradient-background-4);
 }
 @media (max-width: 600px) {
   .content-side-image {
@@ -469,7 +469,8 @@ body {
   }
 
   .content-side-image .First-paragraph h2 {
-    font-size: 1.8rem;
+      text-shadow: 3px 0px 0px var(--text-color-4), -3px 0px 0px var(--text-color-3);
+    font-size: 2.5rem;
   }
 }
 
