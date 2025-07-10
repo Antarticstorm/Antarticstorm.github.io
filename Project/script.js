@@ -214,3 +214,53 @@ function showToast(message = "Subscribed successfully!") {
   }, 6000);
 }
 
+// Register
+const registerForm = document.getElementById("registerForm");
+if (registerForm) {
+  registerForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("regUsername").value;
+    const password = document.getElementById("regPassword").value;
+
+    localStorage.setItem("registeredUsername", username);
+    localStorage.setItem("registeredPassword", password);
+
+    alert("Registered successfully!");
+    window.location.href = "login.html";
+  });
+}
+
+// Password toggle
+function togglePassword() {
+  const passwordInput = document.getElementById("password");
+  const type = passwordInput.getAttribute("type");
+  passwordInput.setAttribute("type", type === "password" ? "text" : "password");
+}
+
+// Login
+const loginForm = document.getElementById("loginForm");
+if (loginForm) {
+  loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const storedUsername = localStorage.getItem("registeredUsername");
+    const storedPassword = localStorage.getItem("registeredPassword");
+
+    if (username === storedUsername && password === storedPassword) {
+      window.location.href = "index.html"; 
+    } else {
+      let errorMsg = document.getElementById("loginError");
+      if (!errorMsg) {
+        errorMsg = document.createElement("p");
+        errorMsg.id = "loginError";
+        errorMsg.style.color = "red";
+        loginForm.appendChild(errorMsg);
+      }
+      errorMsg.textContent = "Invalid username or password.";
+    }
+  });
+}
