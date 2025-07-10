@@ -251,7 +251,6 @@ body {
   padding: clamp(8px, 2vw, 16px);
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
-
 }
 @media (max-width: 600px) {
   .prev, .next {
@@ -261,11 +260,16 @@ body {
 }
 .next {
   right: 0;
-  border-radius: 3px 0 0 3px;
+    text-shadow: 7px 1px 0 var(--text-color-2);
+}
+.prev {
+  left: 0;
+    text-shadow: -7px 1px 0 var(--text-color-2);
 }
 .prev:hover, .next:hover {
   background-color: var(--accent-color);
   transform: scale(1.05);
+  border-radius: 0.2rem;
 }
 
 /* Caption text */
@@ -485,6 +489,8 @@ body {
 }
 
 .team-go-rocket-section .container {
+  padding-top: clamp(2rem, 5vw, 3rem);
+  padding-bottom: clamp(2rem, 5vw, 3rem);
   display: grid;
   grid-template-columns: 1fr 650px;
   align-items: center;
@@ -636,6 +642,8 @@ body {
 .newsletter {
   padding: clamp(2rem, 5vw, 3rem);
   background-color: var(--gradient-background-1);
+  padding-top: clamp(2rem, 5vw, 5rem);
+  padding-bottom: clamp(3rem, 5vw, 5rem);
 }
 
 .newsletter-container {
@@ -653,7 +661,7 @@ body {
 
 .newsletter-image img {
   width: 100%;
-  max-height: 400px;
+  max-height: 600px;
   border-radius: 1rem;
   object-fit: contain;
 }
@@ -761,9 +769,6 @@ form .box:focus {
     max-width: 100%;
   }
 }
-
-
-
 
 
 /* Scroll back to top button */
