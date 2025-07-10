@@ -264,3 +264,8 @@ if (loginForm) {
     }
   });
 }
+document.getElementById("forgotForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  alert("Password reset link sent!");
+  window.location.href = "login.html";
+});
