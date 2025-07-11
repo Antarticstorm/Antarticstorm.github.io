@@ -11,16 +11,23 @@
 <body>
     <!-- Navigation Bar -->
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button class="closebtn" onclick="closeNav()">&times;</button>
+            <div class="logo-container">
+            <img src="Images/Logo.png" alt="Logo" class="nav-logo" />
+            </div>
+
             <a href="index.html">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="shop.html">Shop</a>
+
+            <div class="action-buttons">
+            <a href="register.html" class="register-btn">Register</a>
+            <a href="login.html" class="login-btn">Login</a>
+            </div>
         </div>
         <div id="openBtn" class="openbtn">
             <span onclick="openNav()">
                 <span class="img-wrapper">
-                    <img src="Images/Sidebar.svg" alt="">
+                    <img src="Images/Sidebar.svg" alt="Side bar">
                 </span>
             </span>
         </div>
