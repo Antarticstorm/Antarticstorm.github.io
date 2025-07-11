@@ -168,7 +168,7 @@ body {
   transition: .5s;
 }
 
-.action-buttons a {
+.action-ss a {
   margin: clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 2vw, 2rem);
   background-color: var(--accent-color);
   color: white;
@@ -938,4 +938,95 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   max-width: 100%;
   width: 30%;
   height: auto;
+}
+
+/*Shop Container*/
+
+.product-container {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 0px 1rem 0rem 1rem;
+}
+
+.product-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.product-info {
+  padding: 16px;
+  background-color: #f9f9f9;
+}
+
+.item-title {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: bold;
+}
+
+.buy-button {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: bold;
+  padding: 0.9rem 2.5rem;
+  border-radius: 10px;
+  background-color: var(--accent-color);
+  color: var(--text-color-1);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--text-color-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.buy-button {
+  background-color: var(--gradient-background-4);
+  color: var(--text-color-1);
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Shop container grid layout */
+
+.shop-container-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr));
+  gap: 25px;
+  justify-content: center;
+  padding: 25px 100px 50px 100px;
+  overflow: hidden;
+}
+
+@media (max-width: 1024px) {
+  .shop-container-grid{
+    grid-template-columns: repeat(2, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-container-grid{
+    grid-template-columns: repeat(1, minmax(300px, 1fr));
+  }
+}
+.basic-container {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 3rem);
+  padding: clamp(3rem, 5vw, 5rem) clamp(2rem, 10vw, 15rem);
+}
+
+.basic-container.reverse {
+  background-color: var(--accent-color);
+}
+.basic-container.reverse h2 {
+  color: var(--text-color-1);
+}
+.basic-container.reverse p {
+  color: var(--text-color-1);
+}
+.basic-container.reverse img {
+  box-shadow: 15px 15px 0px var(--text-color-3), 
+              -15px -15px 0px var(--gradient-background-4);
 }
