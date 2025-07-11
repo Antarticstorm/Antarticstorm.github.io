@@ -1,36 +1,40 @@
-!<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pokemon Go</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="Images/LogoIcon.png">
 </head>
 
 <body>
     <!-- Navigation Bar -->
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button class="closebtn" onclick="closeNav()">&times;</button>
+            <div class="logo-container">
+            <img src="Images/Logo.png" alt="Logo" class="nav-logo" />
+            </div>
+
             <a href="index.html">Home</a>
-            <a href="#">Services</a>
-            <a href="#">Clients</a>
-            <a href="#">Contact</a>
+            <a href="about.html">About</a>
+
+            <div class="action-buttons">
+            <a href="register.html" class="register-btn">Register</a>
+            <a href="login.html" class="login-btn">Login</a>
+            </div>
         </div>
         <div id="openBtn" class="openbtn">
             <span onclick="openNav()">
                 <span class="img-wrapper">
-                    <img src="Images/Sidebar.svg" alt="">
+                    <img src="Images/Sidebar.svg" alt="Side bar">
                 </span>
             </span>
         </div>
 
     <!--Shop Title-->
-    <section class="basic-container reverse">
-        <div class="video-title-wrapper">
-            <h1 class="video-player-title">SHOP</h1>
-        </div>
+    <section class="shop-container">
+            <h1 class="shop-title">SHOP</h1>
     </section>
 
     
@@ -42,7 +46,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button subscribe-text" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -52,7 +56,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -62,7 +66,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -72,7 +76,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -82,7 +86,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -92,7 +96,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -102,7 +106,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -112,7 +116,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -122,7 +126,7 @@
             <span class="item-title">Moisten sale</span>
             </div>
             <div>
-                <button class="buy-button" type="submit" id="subscribe-text">Php 500</button>
+                <button class="buy-button" type="submit">Php 500</button>
             </div>
         </div>
 
@@ -154,7 +158,10 @@
         </footer>
 
         <!-- Top button -->
-        <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-arrow-up" aria-hidden="true"></i></button>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <img src="Images/arrow-up.svg" alt="Go to top" class="top-button-image">
+        </button>
+
 
     <script src="script.js"></script>
 
