@@ -212,14 +212,14 @@ function logout() {
 
 /* SHOP – PRODUCT CARDS */
 const products = [
-  { title: "Moisten Sale",     price: 500, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Great Ball Pack",  price: 350, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Ultra Box",        price: 900, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Lucky Egg Bundle", price: 400, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Incense Set",      price: 600, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Rocket Radar",     price: 200, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Egg Incubator",    price: 700, currency: "PHP", image: "Images/Logo.png" },
-  { title: "Raid Pass",        price: 150, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Lucky Egg",     price: 129, currency: "PHP", image: "Images/shop-img/luckyegg.webp" },
+  { title: "Star Piece",  price: 159, currency: "PHP", image: "Images/shop-img/StarPiece.webp"},
+  { title: "Pokemon Storage",        price: 59, currency: "PHP", image: "Images/shop-img/PokemonStorage.webp" },
+  { title: "Max Revive", price: 69, currency: "PHP", image: "Images/shop-img/MaxRevive.webp" },
+  { title: "Egg Incubator",      price: 89, currency: "PHP", image: "Images/shop-img/EggIncubator.png" },
+  { title: "Super Egg Incubator",     price: 99, currency: "PHP", image: "Images/shop-img/EggIncubatorSuper.webp" },
+  { title: "Max Mushroom",    price: 289, currency: "PHP", image: "Images/shop-img/MaxMushroom.webp" },
+  { title: "Max Particle pack",        price: 299, currency: "PHP", image: "Images/shop-img/MaxParticlePack.webp" },
 ];
 
 /* DOM READY – INITIALISE EVERYTHING */
