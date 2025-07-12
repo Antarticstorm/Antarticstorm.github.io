@@ -1089,7 +1089,6 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   height: auto;
   object-fit: contain;
   border-radius: 0.5rem;
-  margin-bottom: 0.8rem;
   transition: transform 0.2s ease;
 }
 
@@ -1217,15 +1216,15 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   }
 
   .product-container {
-    padding: 0.5rem;
+    padding: 0.4rem;
   }
 
   .product-image {
-    height: 160px;
+    height: 90px;
   }
 
   .buy-button {
-    font-size: 0.85rem;
+    font-size: 1rem;
     padding: 1rem 1.5rem;
   }
 }
@@ -1260,8 +1259,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 /* Cart */
 .cart-icon {
   position: fixed;
-  top: clamp(0.5rem, 2vw, 1rem);
-  right: clamp(0.5rem, 2vw, 1rem);
+  top: clamp(0.8em, 2vw, 1rem);
+  right: clamp(0.8rem, 2vw, 1rem);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -1281,8 +1280,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 }
 #cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -10px;
+  right: -10px;
   background-color: var(--gradient-background-4);
   color: white;
   font-size: 0.75rem;
