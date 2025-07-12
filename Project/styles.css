@@ -1329,6 +1329,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   border-top: 5px solid var(--accent-color);
   margin-top: clamp(0.2rem, 5vw, 2rem);
   padding-top: clamp(0.5rem, 5vw, 1rem);
+  text-align: center;
 }
 .cart-footer p{
   font-size: clamp(1.3rem, 5vw ,1.5rem);
@@ -1355,8 +1356,9 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 /* checkout / clear / X */
 #checkoutBtn,
 #clearCartBtn {
-  width: 100%;
-  padding: 0.7rem;
+  display: inline-block;
+  margin: 0.5rem;
+  padding: 1rem 1rem;
   margin-top: 0.5rem;
   font-size: 1rem;
   font-weight: bold;
@@ -1367,8 +1369,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 }
 
 #checkoutBtn{
-  background-color: var(--text-color-3); /* Example: Yellow/Gold */
-  color: #000;
+  background-color: var(--text-color-3);
+  color: #ffffff;
 }
 
 #clearCartBtn {
