@@ -4,12 +4,15 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: var(--accent-color);
-}
+  background-image: url(Images/photos/Battles.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+ }
 
 .login-wrapper {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
   padding: 20px;
 }
 
@@ -17,7 +20,7 @@
   background-color: var(--gradient-background-1);
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
-  padding: 30px 25px;
+  padding: 1rem 3rem 2rem 2rem;
   box-shadow: 0 5px 10px var(--text-color-2);
 }
 
@@ -32,7 +35,6 @@ h2 {
 }
 
 .input-group {
-  margin-bottom: 20px;
   position: relative;
 }
 
@@ -72,7 +74,6 @@ input[type="password"] {
   border: none;
   border-radius: 4px;
   font-size: 16px;
-  margin-top: 5px;
   cursor: pointer;
   transition: 0.3s ease;
 }
@@ -87,7 +88,7 @@ input[type="password"] {
   margin-top: 15px;
   display: flex;
   justify-content: space-between;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .login-links a {
@@ -102,7 +103,7 @@ input[type="password"] {
 .login-footer {
   text-align: center;
   margin-top: 15px;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-color-1);
   transition: 0.5s ease;
 }
@@ -114,4 +115,65 @@ input[type="password"] {
 
 .login-footer a:hover {
   text-decoration: underline;
+}
+
+.login-button {
+  display: inline-block;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: bold;
+  padding: 0.9rem 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+  background-color: var(--gradient-background-4);
+  color: var(--text-color-1);
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px var(--text-color-4);
+}
+
+.login-button:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.login-title {
+  font-size: clamp(1rem, 5vw, 2rem);
+  font-weight: bold;
+  padding: 0.8rem 1rem;
+  color: var(--text-color-1);
+  margin: 0;
+    background-image: linear-gradient(
+    to left,
+    var(--gradient-background-3),
+    var(--gradient-background-4)
+  );
+  box-shadow: var(--gradient-background-4) 12px 12px 0px;
+  transition: 0.3s;
+  margin-bottom: 1.5rem;
+}
+.login-title:hover {
+  box-shadow: var(--gradient-background-4) 20px 20px 0px;
+  transform: translate(-5px, -3px);
+  }
+
+@media (max-width: 500px) {
+  .login-title {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    margin-bottom: 0.8rem;
+    box-shadow: var(--gradient-background-4) 1px 5px 0px;
+  }
+  .login-title:hover {
+    color: var(--text-color-1);
+  }
+}
+
+.registration-logo {
+  max-width: clamp(125px, 10vw, 150px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(10px 5px 0 var(--text-color-4));
+  transition: 0.3s;
 }

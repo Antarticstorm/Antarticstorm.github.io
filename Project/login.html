@@ -9,11 +9,15 @@
     <link rel="icon" href="Images/LogoIcon.png">
 </head>
     <body>
-        
+
+    <!--Login Box-->
     <Section class="whole-login-page">
         <section class="login-wrapper">
             <div class="login-box">
-                <h2>Welcome Back</h2>
+                <div class="square logo-square">
+                    <a href="#"><img src="Images/Logo.png" alt="Logo" class="registration-logo"></a>
+                </div>
+                <h2 class="login-title">Welcome Back</h2>
                 <form action="login.html" method="post" id="loginForm">
                 <div class="input-group">
                     <label for="username">Username</label>
@@ -27,7 +31,7 @@
                 </div>
 
                 <p id="loginError" style="color: red;"></p>
-                <button type="submit" class="login-btn">Login</button>
+                <button type="submit" class="login-button">Login</button>
 
                 <div class="login-links">
                     <a href="forgot-password.html">Forgot Password? </a>
@@ -40,6 +44,37 @@
             </footer>
         </section>
     </Section>
+
+    <!-- Footer -->
+
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="square">
+                    <h3>Homepage</h3>
+                    <a href="#"><i class="fas fa-arrow-right"></i>Store</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i>About Us</a>
+                    <a href="#"><i class="fas fa-arrow-right"></i>Cart</a>
+                </div>
+                <div class="square">
+                    <h3>Contact info</h3>
+                    <a><i class="fas fa-phone"></i>+09886732801</a>
+                    <a><i class="fas fa-envelope"></i>DJBJ@gmail.com</a>
+                    <a><i class="fas fa-envelope"></i>DoroteoJoseBukoJuice@gmail.com</a>
+                </div>
+                <div class="square logo-square">
+                    <a href="#"><img src="Images/Logo.png" alt="Logo" class="footer-logo"></a>
+                </div>
+            </div>
+
+            <div class="credit">All assests and information herewith are owned by the Pokemon Company ©. <br> Copyrights belongs to them. This is for academic purposes only.
+            </div> 
+        </footer>
+
+        <!-- Top button -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+        <img src="Images/arrow-up.svg" alt="Go to top" class="top-button-image">
+        </button>
+        
             <!-- JavaScript -->
             <script src="script.js"></script>
     </body>
