@@ -20,8 +20,12 @@
             <a href="about.html">About</a>
 
             <div class="action-buttons">
-            <a href="register.html" class="register-btn">Register</a>
-            <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="register-btn">Register</a>
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+            <div class="status-container">
+                <div class="login-status" id="loginStatus"></div>
+                <button onclick="logout()" class="logout-btn">Logout</button>
             </div>
         </div>
         <div id="openBtn" class="openbtn">
@@ -63,15 +67,12 @@
             <ul id="cart-items"></ul>
             <div class="cart-footer">
                 <p>Total: <span id="cart-total">Php 0</span></p>
-                <button id="checkoutBtn" onclick="checkoutCart()">Checkout</button>
+                <button id="checkoutBtn"  type="button" onclick="checkoutCart()">Checkout</button>
                 <button id="clearCartBtn" onclick="clearCart()">Clear</button>
             </div>
         </div>
 
-
-
     <!-- Footer -->
-
         <footer class="footer">
             <div class="footer-container">
                 <div class="square">

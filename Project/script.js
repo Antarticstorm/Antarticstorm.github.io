@@ -84,6 +84,7 @@ function clearCart() {
 }
 
 function checkoutCart() {
+  if (!cart.length) return;
   alert("Thank you for your purchase!");
   clearCart();
 }
