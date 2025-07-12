@@ -3,34 +3,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  padding: clamp(1rem, 4vw, 2rem);
+  min-height: 100vh;
   background-image: url(Images/photos/Battles.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
- }
+}
 
 .login-wrapper {
   width: 100%;
   max-width: 500px;
-  padding: 20px;
+  padding: clamp(1rem, 4vw, 2rem);
 }
-
 .login-box {
   background-color: var(--gradient-background-1);
   border: 1px solid var(--border-color);
   border-radius: 0.5rem;
-  padding: 1rem 3rem 2rem 2rem;
+  padding: clamp(1rem, 4vw, 2rem);
   box-shadow: 0 5px 10px var(--text-color-2);
 }
 
 h2 {
-  font-size: clamp(1rem, 5vw, 1.5rem);
+  font-size: clamp(1.2rem, 5vw, 1.5rem);
   color: var(--accent-color);
-  box-shadow: 15px 15px 0px var(--text-color-3) ,
-              -15px -15px 0px var(--text-color-4);
+  box-shadow: 15px 15px 0px var(--text-color-3), -15px -15px 0px var(--text-color-4);
   text-align: center;
-
   margin-bottom: 25px;
 }
 
@@ -42,18 +40,23 @@ label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
   width: 100%;
-  padding: 8px 10px;
+  padding: 0.6rem 0.75rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
-  font-size: 16px;
+  font-size: 1rem;
 }
-
+input[type="email"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
 .password-group {
   position: relative;
 }
@@ -86,10 +89,12 @@ input[type="password"] {
 }
 
 .login-links {
-  margin-top: 15px;
+  margin-top: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 0.75rem;
+  gap: 0.5rem;
 }
 
 .login-links a {
@@ -103,8 +108,8 @@ input[type="password"] {
 
 .login-footer {
   text-align: center;
-  margin-top: 15px;
-  font-size: 12px;
+  margin-top: 1rem;
+  font-size: 0.75rem;
   color: var(--text-color-1);
   transition: 0.5s ease;
 }
@@ -133,6 +138,7 @@ input[type="password"] {
   letter-spacing: 0.05em;
   transition: all 0.3s ease;
   box-shadow: 0 0 15px var(--text-color-4);
+  width: 100%;
 }
 
 .login-button:hover {
@@ -142,17 +148,13 @@ input[type="password"] {
 .login-title {
   font-size: clamp(1rem, 5vw, 2rem);
   font-weight: bold;
-  padding: 0.8rem 1rem;
+  padding: clamp(0.6rem, 1.5vw, 1rem);
   color: var(--text-color-1);
-  margin: 0;
-    background-image: linear-gradient(
-    to left,
-    var(--gradient-background-3),
-    var(--gradient-background-4)
-  );
+  background-image: linear-gradient(to left, var(--gradient-background-3), var(--gradient-background-4));
   box-shadow: var(--gradient-background-4) 12px 12px 0px;
   transition: 0.3s;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 .login-title:hover {
   box-shadow: var(--gradient-background-4) 20px 20px 0px;
@@ -172,9 +174,31 @@ input[type="password"] {
 }
 
 .registration-logo {
-  max-width: clamp(125px, 10vw, 150px);
+  max-width: clamp(125px, 20vw, 150px);
   height: auto;
   display: block;
+  margin: 0 auto 1rem;
   filter: drop-shadow(10px 5px 0 var(--text-color-4));
   transition: 0.3s;
+}
+
+/* MOBILE */
+@media (max-width: 500px) {
+  .login-title {
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    margin-bottom: 0.8rem;
+    box-shadow: var(--gradient-background-4) 1px 5px 0px;
+  }
+  .login-title:hover {
+    color: var(--text-color-1);
+  }
+
+  .login-wrapper {
+    padding: 1rem;
+  }
+
+  .login-box {
+    padding: 1rem;
+  }
 }

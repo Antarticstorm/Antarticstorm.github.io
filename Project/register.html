@@ -17,52 +17,36 @@
                     <a href="#"><img src="Images/Logo.png" alt="Logo" class="registration-logo"></a>
                 </div>
                 <h2 class="login-title">Register New Account</h2>
-                <form action="registerForm" method="post" id="loginForm">
-                    
+                <form action="#" method="post" id="registerForm">
                 <div class="input-group">
                     <label for="regUsername">Create Username</label>
                     <input type="text" id="regUsername" name="username" required />
                 </div>
 
-                <!-- NOTE: Changing the type from "text" to "email" causes the input box to look different-->
                 <div class="input-group">
-                    <label for="regEmai;">Insert Email</label>
-                    <input type="text" id="regEmai" name="email" required />
+                <label for="regEmail">Insert Email</label>
+                <input type="email" id="regEmail" name="email" required />
                 </div>
 
-                
                 <div class="input-group password-group">
                     <label for="regPassword">Create Password</label>
                     <input type="password" id="regPassword" name="password" required />
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    <span class="toggle-password" data-target="regPassword">👁️</span>
                 </div>
 
                 <div class="input-group password-group">
-                    <label for="regPassword">Rewrite Password</label>
-                    <input type="password" id="regPassword" name="password" required />
-                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                    <label for="confirmPassword">Rewrite Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" required />
+                    <span class="toggle-password" data-target="confirmPassword">👁️</span>
                 </div>
 
-                <!-- If possible, make the password and rewrite password compare each other to allow create account \-->
                 <p id="loginError" style="color: red;"></p>
                 <button type="submit" class="login-button">Create Account</button>
-
                 </form>
             </div>
 
         </section>
     </Section>
-
-    <!-- Registration area Echo's OG version-->
-    <form id="registerForm">
-        <label for="regUsername">Username:</label>
-        <input type="text" id="regUsername" required />
-
-        <label for="regPassword">Password:</label>
-        <input type="password" id="regPassword" required />
-
-        <button type="submit">Register</button>
-    </form>
 
     <!-- Footer -->
     <footer class="footer">
