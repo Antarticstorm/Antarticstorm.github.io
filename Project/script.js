@@ -302,7 +302,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* 6. Check if logged in or not */
     const loginStatusEl = document.getElementById("loginStatus");
     const username = localStorage.getItem("registeredUsername");
-    const loggedIn = window.location.pathname.endsWith("index.html"); // check if on homepage
+    const loggedIn = window.location.pathname.endsWith("index.html");
 
     if (loginStatusEl && loggedIn) {
       const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
