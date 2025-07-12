@@ -1,16 +1,34 @@
 /* CART – SIDEBAR */
-let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+let cart = (JSON.parse(localStorage.getItem("cart") || "[]"))
+             .map(item => ({ ...item, qty: item.qty ?? 1 }));
 
-// Helper
+// Shopping cart helper
 function createCartItemHTML(item, index) {
+  const lineTotal = item.price * item.qty;
   return `
-    <strong>${item.title}</strong><br>
-    Php ${item.price}
-    <button class="remove-btn"
-            onclick="event.stopPropagation(); removeFromCart(${index})">
-      ✖
-    </button>
+    <div class="cart-item">
+      <img src="${item.image}" alt="${item.title}" class="cart-item-image">
+      <div class="cart-item-info">
+        <strong>${item.title}</strong><br>
+        Php ${lineTotal}
+      </div>
+
+      <!-- qty controls -->
+      <div class="qty-controls">
+        <button class="qty-btn qty-minus" data-index="${index}">−</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn qty-plus" data-index="${index}">+</button>
+      </div>
+    </div>
   `;
+}
+
+
+// Changing cart quantity
+function changeQty(index, delta) {
+  cart[index].qty += delta;
+  if (cart[index].qty < 1) cart.splice(index, 1);
+  renderCart();
 }
 
 
@@ -26,28 +44,39 @@ function renderCart() {
   let total = 0;
 
   cart.forEach((item, index) => {
-    total += item.price;
+    const lineTotal = item.price * item.qty;
+    total += lineTotal;
 
     const li = document.createElement("li");
     li.innerHTML = createCartItemHTML(item, index);
     cartItems.appendChild(li);
   });
 
-  if (cartTotal) cartTotal.textContent = `Php ${total}`;
-  if (cartCount) cartCount.textContent = cart.length;
+  if (cartTotal) cartTotal.textContent = `Php ${total}`;
+  if (cartCount) cartCount.textContent = cart.reduce((sum, i) => sum + i.qty, 0);
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 
-function addToCart(title, price) {
-  cart.push({ title, price });
+function addToCart(title, price, image) {
+  const existing = cart.find(i => i.title === title);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ title, price, image, qty: 1 });
+  }
   renderCart();
 }
 
 function removeFromCart(index) {
-  cart.splice(index, 1);
+  if (cart[index].qty > 1) {
+    cart[index].qty -= 1;
+  } else {
+    cart.splice(index, 1);
+  }
   renderCart();
 }
+
 
 function clearCart() {
   cart = [];
@@ -64,9 +93,7 @@ function toggleCart() {
   document.getElementById("cartSidebar").classList.toggle("open");
 }
 
-/* ---------------------------------------- */
-/* Sidebar toggle */
-
+//Sidebar toggle 
 function openNav() {
   document.getElementById("mySidenav").classList.add("open");
   document.getElementById("openBtn")?.classList.add("hidden");
@@ -180,14 +207,14 @@ document.getElementById("forgotForm")?.addEventListener("submit", e => {
 
 /* SHOP – PRODUCT CARDS */
 const products = [
-  { title: "Moisten Sale",     price: "Php 500", image: "Images/Logo.png" },
-  { title: "Great Ball Pack",  price: "Php 350", image: "Images/Logo.png" },
-  { title: "Ultra Box",        price: "Php 900", image: "Images/Logo.png" },
-  { title: "Lucky Egg Bundle", price: "Php 400", image: "Images/Logo.png" },
-  { title: "Incense Set",      price: "Php 600", image: "Images/Logo.png" },
-  { title: "Rocket Radar",     price: "Php 200", image: "Images/Logo.png" },
-  { title: "Egg Incubator",    price: "Php 700", image: "Images/Logo.png" },
-  { title: "Raid Pass",        price: "Php 150", image: "Images/Logo.png" },
+  { title: "Moisten Sale",     price: 500, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Great Ball Pack",  price: 350, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Ultra Box",        price: 900, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Lucky Egg Bundle", price: 400, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Incense Set",      price: 600, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Rocket Radar",     price: 200, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Egg Incubator",    price: 700, currency: "PHP", image: "Images/Logo.png" },
+  { title: "Raid Pass",        price: 150, currency: "PHP", image: "Images/Logo.png" },
 ];
 
 /* DOM READY – INITIALISE EVERYTHING */
@@ -217,12 +244,12 @@ document.addEventListener("DOMContentLoaded", () => {
   /* 3. Shop products */
   const list = document.getElementById("product-list");
   if (list) {
-    products.forEach(({ title, price, image }) =>
+    products.forEach(({ title, price, image, currency    }) =>
       list.insertAdjacentHTML("beforeend", `
         <div class="product-container">
           <img src="${image}" alt="${title}" class="product-image">
           <div class="product-info"><span class="item-title">${title}</span></div>
-          <div class="button-wrapper"><button class="buy-button" type="button">${price}</button></div>
+          <button class="buy-button" type="button">${currency} ${price}</button>
         </div>
       `)
     );
@@ -252,12 +279,19 @@ document.addEventListener("DOMContentLoaded", () => {
     if (e.target.classList.contains("buy-button")) {
       const card = e.target.closest(".product-container");
       const title = card.querySelector(".item-title").textContent;
-      const price = parseInt(e.target.textContent.replace(/[^\d]/g, ""), 10);
-      addToCart(title, price);
+      const price = Number(e.target.textContent.replace(/[^\d]/g, ""));
+      const image = card.querySelector(".product-image").src;
+      addToCart(title, price, image);
     }
 
     if (e.target.id === "clearCartBtn") clearCart();
     if (e.target.id === "checkoutBtn") checkoutCart();
+    if (e.target.classList.contains("qty-plus")) {
+    changeQty(Number(e.target.dataset.index), +1);
+    }
+    if (e.target.classList.contains("qty-minus")) {
+      changeQty(Number(e.target.dataset.index), -1);
+    }
   });
 });
 
