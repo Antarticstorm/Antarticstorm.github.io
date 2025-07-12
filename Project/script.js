@@ -1,4 +1,62 @@
-// Sidebar toggle
+/* CART – SIDEBAR */
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Render cart items in sidebar
+function renderCart() {
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  const cartCount = document.getElementById("cart-count");
+
+  cartItems.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    total += item.price;
+
+    const li = document.createElement("li");
+    li.innerHTML = `
+      <strong>${item.title}</strong><br>
+      Php ${item.price}
+      <button class="remove-btn"
+              onclick="event.stopPropagation(); removeFromCart(${index})">
+        ✖
+      </button>
+    `;
+    cartItems.appendChild(li);
+  });
+
+  cartTotal.textContent = `Php ${total}`;
+  cartCount.textContent = cart.length;
+  localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(title, price) {
+  cart.push({ title, price });
+  renderCart();
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  renderCart();
+}
+
+function clearCart() {
+  cart = [];
+  renderCart();
+}
+
+function checkoutCart() {
+  alert("Thank you for your purchase!");
+  clearCart();
+}
+
+// Toggle cart sidebar
+function toggleCart() {
+  document.getElementById("cartSidebar").classList.toggle("open");
+}
+
+/* ---------------------------------------- */
+/* Sidebar toggle */
 
 function openNav() {
   document.getElementById("mySidenav").classList.add("open");
@@ -33,12 +91,12 @@ function showSlide(i) {
   if (i >= slides.length) slideIndex = 0;
   if (i < 0)             slideIndex = slides.length - 1;
   slides.forEach(s => s.classList.remove("active"));
-  dots.forEach(d  => d .classList.remove("active"));
+  dots.forEach(d => d.classList.remove("active"));
   slides[slideIndex].classList.add("active");
   dots[slideIndex].classList.add("active");
 }
-function plusSlides(n) { clearTimeout(autoTimer); slideIndex += n; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
-function currentSlide(i){ clearTimeout(autoTimer); slideIndex = i; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
+function plusSlides(n)  { clearTimeout(autoTimer); slideIndex += n; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
+function currentSlide(i){ clearTimeout(autoTimer); slideIndex  = i; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
 function autoPlay()     { slideIndex++; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
 function initSlides() {
   slides = [...document.getElementsByClassName("mySlides")];
@@ -48,7 +106,7 @@ function initSlides() {
   slides.forEach((_, i) => {
     const d = document.createElement("span");
     d.className = "dot";
-    d.onclick = () => currentSlide(i);
+    d.onclick   = () => currentSlide(i);
     dotBox.appendChild(d);
     dots.push(d);
   });
@@ -71,12 +129,12 @@ function validateAndSubscribe() {
   const emailInput = document.getElementById("emailInput");
   const email      = emailInput.value.trim();
   const btn        = document.getElementById("subscribe-text");
-  const re         = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+  const re         = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!re.test(email)) { alert("Please enter a valid email."); emailInput.focus(); return; }
   btn.textContent = "Subscribed"; btn.disabled = true; btn.style.cursor = "default"; emailInput.disabled = true;
   showToast("🎉 You’re now subscribed!");
 }
-function showToast(msg="Subscribed successfully!") {
+function showToast(msg = "Subscribed successfully!") {
   const toast = document.getElementById("toast");
   toast.textContent = msg; toast.classList.add("show");
   setTimeout(() => toast.classList.remove("show"), 6000);
@@ -91,7 +149,7 @@ document.getElementById("registerForm")?.addEventListener("submit", e => {
 });
 function togglePassword() {
   const pw = document.getElementById("password");
-  pw.type = pw.type === "password" ? "text" : "password";
+  pw.type  = pw.type === "password" ? "text" : "password";
 }
 document.getElementById("loginForm")?.addEventListener("submit", e => {
   e.preventDefault();
@@ -111,17 +169,16 @@ document.getElementById("forgotForm")?.addEventListener("submit", e => {
   alert("Password reset link sent!"); window.location.href = "login.html";
 });
 
-/* SHOP – PRODUCT CARDS  */
+/* SHOP – PRODUCT CARDS */
 const products = [
-  { title:"Moisten Sale",     price:"Php 500", image:"Images/Logo.png" },
-  { title:"Great Ball Pack",  price:"Php 350", image:"Images/Logo.png" },
-  { title:"Ultra Box",        price:"Php 900", image:"Images/Logo.png" },
-  { title:"Lucky Egg Bundle", price:"Php 400", image:"Images/Logo.png" },
-  { title:"Incense Set",      price:"Php 600", image:"Images/Logo.png" },
-  { title:"Rocket Radar",     price:"Php 200", image:"Images/Logo.png" },
-  { title:"Egg Incubator",    price:"Php 700", image:"Images/Logo.png" },
-  { title:"Raid Pass",        price:"Php 150", image:"Images/Logo.png" },
-  { title:"Lure Module",      price:"Php 450", image:"Images/Logo.png" }
+  { title: "Moisten Sale",     price: "Php 500", image: "Images/Logo.png" },
+  { title: "Great Ball Pack",  price: "Php 350", image: "Images/Logo.png" },
+  { title: "Ultra Box",        price: "Php 900", image: "Images/Logo.png" },
+  { title: "Lucky Egg Bundle", price: "Php 400", image: "Images/Logo.png" },
+  { title: "Incense Set",      price: "Php 600", image: "Images/Logo.png" },
+  { title: "Rocket Radar",     price: "Php 200", image: "Images/Logo.png" },
+  { title: "Egg Incubator",    price: "Php 700", image: "Images/Logo.png" },
+  { title: "Raid Pass",        price: "Php 150", image: "Images/Logo.png" },
 ];
 
 /* DOM READY – INITIALISE EVERYTHING */
@@ -142,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".gym-slider")?.addEventListener("touchstart", e => touchStartX = e.changedTouches[0].screenX);
     document.querySelector(".gym-slider")?.addEventListener("touchend",   e => {
       touchEndX = e.changedTouches[0].screenX;
-      const d = touchEndX - touchStartX;
+      const d   = touchEndX - touchStartX;
       if (d < -50) nextGymSlide();
       if (d >  50) prevGymSlide();
     });
@@ -151,7 +208,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* 3. Shop products */
   const list = document.getElementById("product-list");
   if (list) {
-    products.forEach(({title, price, image}) =>
+    products.forEach(({ title, price, image }) =>
       list.insertAdjacentHTML("beforeend", `
         <div class="product-container">
           <img src="${image}" alt="${title}" class="product-image">
@@ -161,4 +218,37 @@ document.addEventListener("DOMContentLoaded", () => {
       `)
     );
   }
+
+  /* 4. Render initial cart */
+  renderCart();
+
+  /* 5. Unified click handling */
+  document.addEventListener("click", e => {
+    const sidenav     = document.getElementById("mySidenav");
+    const sidenavBtn  = document.getElementById("openBtn");
+    const cartSidebar = document.getElementById("cartSidebar");
+    const cartIcon    = document.querySelector(".cart-icon");
+
+    const clickedOutsideSidenav = sidenav.classList.contains("open") &&
+      !sidenav.contains(e.target) &&
+      !sidenavBtn.contains(e.target);
+
+    const clickedOutsideCart = cartSidebar.classList.contains("open") &&
+      !cartSidebar.contains(e.target) &&
+      !cartIcon.contains(e.target);
+
+    if (clickedOutsideSidenav) closeNav();
+    if (clickedOutsideCart) cartSidebar.classList.remove("open");
+
+    if (e.target.classList.contains("buy-button")) {
+      const card = e.target.closest(".product-container");
+      const title = card.querySelector(".item-title").textContent;
+      const price = parseInt(e.target.textContent.replace(/[^\d]/g, ""), 10);
+      addToCart(title, price);
+    }
+
+    if (e.target.id === "clearCartBtn") clearCart();
+    if (e.target.id === "checkoutBtn") checkoutCart();
+  });
 });
+
