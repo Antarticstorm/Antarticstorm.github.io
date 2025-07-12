@@ -193,6 +193,7 @@ document.getElementById("loginForm")?.addEventListener("submit", e => {
   const p = document.getElementById("password").value;
   if (u === localStorage.getItem("registeredUsername") &&
       p === localStorage.getItem("registeredPassword")) {
+    localStorage.setItem("isLoggedIn", "true");
     window.location.href = "index.html";
   } else {
     let err = document.getElementById("loginError");
@@ -204,6 +205,10 @@ document.getElementById("forgotForm")?.addEventListener("submit", e => {
   e.preventDefault();
   alert("Password reset link sent!"); window.location.href = "login.html";
 });
+function logout() {
+  localStorage.setItem("isLoggedIn", "false");
+  window.location.href = "index.html";
+}
 
 /* SHOP – PRODUCT CARDS */
 const products = [
@@ -293,5 +298,32 @@ document.addEventListener("DOMContentLoaded", () => {
       changeQty(Number(e.target.dataset.index), -1);
     }
   });
+
+    /* 6. Check if logged in or not */
+    const loginStatusEl = document.getElementById("loginStatus");
+    const username = localStorage.getItem("registeredUsername");
+    const loggedIn = window.location.pathname.endsWith("index.html"); // check if on homepage
+
+    if (loginStatusEl && loggedIn) {
+      const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+      loginStatusEl.textContent = isLoggedIn && username
+        ? `You are logged in as ${username}`
+        : "You are not signed in";
+  }
+
+    const loginStatus = document.getElementById("loginStatus");
+    const logoutBtn   = document.querySelector(".logout-btn");
+
+    if (loginStatus && logoutBtn) {
+      if (localStorage.getItem("isLoggedIn") === "true") {
+        loginStatus.textContent = "You are logged in";
+        logoutBtn.style.display = "inline-block";
+      } else {
+        loginStatus.textContent = "You are not signed in";
+        logoutBtn.style.display = "none";
+      }
+    }
 });
+
 

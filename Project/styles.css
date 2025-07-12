@@ -171,6 +171,77 @@ body {
   transition: .5s;
 }
 
+.login-status {
+  display: inline-block;
+  color: #fff;
+  background-color: #f97316;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  white-space: normal;
+  word-break: break-word;
+  max-width: 90%;
+  line-height: 1.4;
+}
+
+
+/* Container to wrap both status and logout nicely */
+.status-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  max-width: 100%;
+  text-align: center;
+}
+.status-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Status message box */
+.login-status {
+  display: inline-block;
+  color: #fff;
+  background-color: #4ade80;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: 600;
+  max-width: 200px;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Logout button styling */
+.logout-btn {
+  margin: 1rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #f87171, #ef4444);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  transform: scale(1.05);
+}
+
+
+
 .action.buttons  a {
   margin: clamp(0.5rem, 2vw, 0.8rem) clamp(1rem, 2vw, 2rem);
   background-color: var(--accent-color);
