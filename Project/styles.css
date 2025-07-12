@@ -1120,6 +1120,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   border: 2px solid #e60000;
 }
 
+
 .limited-label {
   position: absolute;
   top: 0.75rem;
@@ -1133,6 +1134,14 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   pointer-events: none;
 }
 
+.product-image-limited {
+  width: 100%;
+  max-width: clamp(25rem, 40vw, 40rem);
+  height: auto;
+  object-fit: cover;
+  display: block;
+  margin-inline: auto;
+}
 
 /* Buy Button */
 .button-wrapper{
