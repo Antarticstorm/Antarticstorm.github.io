@@ -116,6 +116,27 @@ function showSlides() {
   autoSlideTimer = setTimeout(showSlides, 5000);
 }
 
+ // DOM Ready
+document.addEventListener("DOMContentLoaded", () => {
+  initSlides();
+  showSlide(slideIndex);
+  autoSlideTimer = setTimeout(showSlides, 5000);
+
+  const slideshowContainer = document.querySelector(".slideshow");
+  slideshowContainer?.addEventListener("touchstart", (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  });
+  slideshowContainer?.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    handleSwipe();
+  });
+
+  const backButton = document.getElementById("backButton");
+  backButton?.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.history.back();
+  });
+
 // Team GO Rocket Slider
 let rocketSlides = [];
 let rocketIndex = 0;
@@ -136,27 +157,6 @@ function prevRocketSlide() {
   rocketIndex--;
   showRocketSlide(rocketIndex);
 }
-
-// DOM Ready
-document.addEventListener("DOMContentLoaded", () => {
-  initSlides();
-  showSlide(slideIndex);
-  autoSlideTimer = setTimeout(showSlides, 5000);
-
-  const slideshowContainer = document.querySelector(".slideshow");
-  slideshowContainer?.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  slideshowContainer?.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
-
-  const backButton = document.getElementById("backButton");
-  backButton?.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.history.back();
-  });
 
   // Initialize Team GO Rocket slider
   rocketSlides = Array.from(document.querySelectorAll(".rocket-slide"));

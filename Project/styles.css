@@ -831,7 +831,7 @@ form .box:focus {
 
 .square a {
   display: block;
-  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-size: clamp(0.9rem, 2vw, 1.3rem);
   color: var(--text-color-1);
   padding: clamp(0.5rem, 2vw, 1rem) 0;
   word-break: break-word;
