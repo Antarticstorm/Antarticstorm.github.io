@@ -992,8 +992,6 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
     color: var(--text-color-1);
   }
 }
-
-
 .product-container {
   width: 100%;
   max-width: 100%;
@@ -1009,6 +1007,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   border: 0.2rem solid var(--border-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  min-width: 0;
 }
 
 .product-container:hover {
@@ -1019,7 +1018,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   width: 100%;
   max-width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -1071,50 +1070,66 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 
 .shop-container-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   padding: 2rem clamp(1rem, 5vw, 5rem);
   box-sizing: border-box;
+  width: 100%;
+  margin: 0 auto; 
+  overflow-x: hidden;
 }
+@media (max-width: 1024px) {
+  .shop-container-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .product-image {
+    height: 220px;
+  }
+  .buy-button {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
 @media (max-width: 768px) {
   .shop-container-grid {
-    padding: 1rem;
-    gap: 15px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 1.5rem;
   }
 
-  .product-container {
-    padding: 0 0.5rem;
+  .product-image {
+    height: 180px;
+  }
+
+  .item-title {
+    font-size: 1.2rem;
+  }
+
+  .buy-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
   }
 }
 
 @media (max-width: 500px) {
   .shop-container-grid {
-    padding: 1.5rem 1rem;
+    grid-template-columns: 1fr;
     gap: 15px;
+    padding: 1rem;
   }
 
   .product-container {
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem;
   }
 
   .product-image {
-    height: 200px;
+    height: 160px;
   }
 
   .buy-button {
-    width:50%;
-    padding: 0.8rem 2em;
-  }
-}
-@media (max-width: 400px) {
-  .product-image {
-    height: 180px;
-  }
-
-  .buy-button {
-    font-size: 0.9rem;
-    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    padding: 1rem 1.5rem;
   }
 }
 
