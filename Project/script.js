@@ -1,11 +1,26 @@
 /* CART – SIDEBAR */
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+// Helper
+function createCartItemHTML(item, index) {
+  return `
+    <strong>${item.title}</strong><br>
+    Php ${item.price}
+    <button class="remove-btn"
+            onclick="event.stopPropagation(); removeFromCart(${index})">
+      ✖
+    </button>
+  `;
+}
+
 
 // Render cart items in sidebar
 function renderCart() {
   const cartItems = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
   const cartCount = document.getElementById("cart-count");
+
+  if (!cartItems) return;
 
   cartItems.innerHTML = "";
   let total = 0;
@@ -14,21 +29,15 @@ function renderCart() {
     total += item.price;
 
     const li = document.createElement("li");
-    li.innerHTML = `
-      <strong>${item.title}</strong><br>
-      Php ${item.price}
-      <button class="remove-btn"
-              onclick="event.stopPropagation(); removeFromCart(${index})">
-        ✖
-      </button>
-    `;
+    li.innerHTML = createCartItemHTML(item, index);
     cartItems.appendChild(li);
   });
 
-  cartTotal.textContent = `Php ${total}`;
-  cartCount.textContent = cart.length;
+  if (cartTotal) cartTotal.textContent = `Php ${total}`;
+  if (cartCount) cartCount.textContent = cart.length;
   localStorage.setItem("cart", JSON.stringify(cart));
 }
+
 
 function addToCart(title, price) {
   cart.push({ title, price });
@@ -127,8 +136,8 @@ function prevGymSlide() { gymIndex--; showGymSlide(gymIndex); }
 /* NEWSLETTER */
 function validateAndSubscribe() {
   const emailInput = document.getElementById("emailInput");
-  const email      = emailInput.value.trim();
-  const btn        = document.getElementById("subscribe-text");
+  const email = emailInput.value.trim();
+  const btn = document.getElementById("subscribe-text");
   const re         = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!re.test(email)) { alert("Please enter a valid email."); emailInput.focus(); return; }
   btn.textContent = "Subscribed"; btn.disabled = true; btn.style.cursor = "default"; emailInput.disabled = true;
