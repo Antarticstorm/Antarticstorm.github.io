@@ -1003,18 +1003,20 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   );;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
+  overflow: hidden;
 }
-
 .product-container:hover {
   transform: scale(1.03);
 }
 
 .product-image {
   width: 100%;
-  max-width: 100%;
+  max-width: 300px;
   height: auto;
   object-fit: contain;
-  display: block;
+  border-radius: 0.5rem;
+  margin-bottom: 0.8rem;
+  transition: transform 0.2s ease;
 }
 
 .product-info {
@@ -1032,6 +1034,31 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   text-align: center;
   text-shadow: 1px 2px 0px var(--text-color-2);
 }
+
+/* Limited time bundle */
+.product-container.limited {
+  position: relative;
+  border-radius: 0;
+  transform: none;
+  background: linear-gradient(135deg, #ff6e6e, #ff1515);
+  overflow: hidden;
+  box-sizing: border-box;
+  border: 2px solid #e60000;
+}
+
+.limited-label {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background-color: var(--gradient-background-2);
+  color: #fff;
+  font-size: clamp(1rem, 2.2vw, 5rem);;
+  padding: 3px 7px;
+  z-index: 1;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
 
 /* Buy Button */
 .button-wrapper{
