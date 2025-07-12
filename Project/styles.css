@@ -1290,7 +1290,6 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 /* Cart Sidebar */
 .cart-sidebar {
   color: var(--gradient-background-1);
-  text-shadow: 2px 1px 0px var(--text-color-2);
   position: fixed;
   top: 0;
   right: -400px;
@@ -1330,6 +1329,10 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   border-top: 5px solid var(--accent-color);
   margin-top: clamp(0.2rem, 5vw, 2rem);
   padding-top: clamp(0.5rem, 5vw, 1rem);
+}
+.cart-footer p{
+  font-size: clamp(1.3rem, 5vw ,1.5rem);
+  text-align: center;
 }
 .cart-close-btn {
   position: absolute;
