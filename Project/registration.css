@@ -25,7 +25,7 @@
 }
 
 h2 {
-  font-size: clamp(1.5rem, 5vw, 3rem);
+  font-size: clamp(1rem, 5vw, 1.5rem);
   color: var(--accent-color);
   box-shadow: 15px 15px 0px var(--text-color-3) ,
               -15px -15px 0px var(--text-color-4);
@@ -42,12 +42,13 @@ label {
   display: block;
   margin-bottom: 6px;
   font-weight: 600;
+  font-size: 0.8rem;
 }
 
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   font-size: 16px;
@@ -68,7 +69,7 @@ input[type="password"] {
 
 .login-btn {
   width: 100%;
-  padding: 1rem;
+  padding: 0.8rem;
   background-color: var(--accent-color);
   color: var(--text-color-1);
   border: none;

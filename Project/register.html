@@ -9,44 +9,84 @@
     <link rel="icon" href="Images/LogoIcon.png">
 </head>
     <body>
-    <!-- Navigation Bar -->
-    <div id="mySidenav" class="sidenav">
-        <button class="closebtn" onclick="closeNav()">&times;</button>
-        <div class="logo-container">
-        <img src="Images/Logo.png" alt="Logo" class="nav-logo" />
+        <!--Register Box-->
+    <Section class="whole-login-page">
+        <section class="login-wrapper">
+            <div class="login-box">
+                <div class="square logo-square">
+                    <a href="#"><img src="Images/Logo.png" alt="Logo" class="registration-logo"></a>
+                </div>
+                <h2 class="login-title">Register New Account</h2>
+                <form action="registerForm" method="post" id="loginForm">
+                    
+                <div class="input-group">
+                    <label for="regUsername">Create Username</label>
+                    <input type="text" id="regUsername" name="username" required />
+                </div>
+
+                <!-- NOTE: Changing the type from "text" to "email" causes the input box to look different-->
+                <div class="input-group">
+                    <label for="regEmai;">Insert Email</label>
+                    <input type="text" id="regEmai" name="email" required />
+                </div>
+
+                
+                <div class="input-group password-group">
+                    <label for="regPassword">Create Password</label>
+                    <input type="password" id="regPassword" name="password" required />
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+
+                <div class="input-group password-group">
+                    <label for="regPassword">Rewrite Password</label>
+                    <input type="password" id="regPassword" name="password" required />
+                    <span class="toggle-password" onclick="togglePassword()">👁️</span>
+                </div>
+
+                <!-- If possible, make the password and rewrite password compare each other to allow create account \-->
+                <p id="loginError" style="color: red;"></p>
+                <button type="submit" class="login-button">Create Account</button>
+
+                </form>
+            </div>
+
+        </section>
+    </Section>
+
+    <!-- Registration area Echo's OG version-->
+    <form id="registerForm">
+        <label for="regUsername">Username:</label>
+        <input type="text" id="regUsername" required />
+
+        <label for="regPassword">Password:</label>
+        <input type="password" id="regPassword" required />
+
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="square">
+                <h3>Links</h3>
+                <a href="index.html"><i></i>Home</a>
+                <a href="about.html"><i></i>About Us</a>
+                <a href="shop.html"><i></i>Shop</a>
+            </div>
+            <div class="square">
+                <h3>Contact info</h3>
+                <a><i></i>+09886732801</a>
+                <a><i></i>DJBJ@gmail.com</a>
+                <a><i></i>DoroteoJoseBukoJuice@gmail.com</a>
+            </div>
+            <div class="square logo-square">
+                <a href="#"><img src="Images/Logo.png" alt="Logo" class="footer-logo"></a>
+            </div>
         </div>
 
-        <a href="about.html">About</a>
-        <a href="shop.html">Shop</a>
-
-        <div class="action-buttons">
-            <a href="register.html" class="register-btn">Register</a>
-            <a href="login.html" class="login-btn">Login</a>
-        </div>
-        <div class="status-container">
-            <div class="login-status" id="loginStatus"></div>
-            <button onclick="logout()" class="logout-btn">Logout</button>
-        </div>
-    </div>
-    <div id="openBtn" class="openbtn">
-        <span onclick="openNav()">
-            <span class="img-wrapper">
-                <img src="Images/Sidebar.svg" alt="Side bar">
-            </span>
-        </span>
-    </div>
-
-
-        <!-- Registration area-->
-        <form id="registerForm">
-            <label for="regUsername">Username:</label>
-            <input type="text" id="regUsername" required />
-
-            <label for="regPassword">Password:</label>
-            <input type="password" id="regPassword" required />
-
-            <button type="submit">Register</button>
-        </form>
+        <div class="credit">All assests and information herewith are owned by the Pokemon Company ©. <br> Copyrights belongs to them. This is for academic purposes only.
+        </div> 
+    </footer>
 
         <!-- JavaScript -->
             <script src="script.js"></script>
