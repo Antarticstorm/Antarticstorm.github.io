@@ -901,6 +901,10 @@ form .box:focus {
   color: var(--text-color-1);
   padding: clamp(0.5rem, 2vw, 1rem) 0;
   word-break: break-word;
+  transition: 0.3s ease;
+}
+.square a:hover {
+  transform: scale(1.04);
 }
 
 .square a i {
@@ -1256,9 +1260,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 /* Cart */
 .cart-icon {
   position: fixed;
-  top: clamp(3px, 3vw , 15px);
-  right: clamp(3px, 3vw , 15px);
-  cursor: pointer;
+  top: clamp(0.5rem, 2vw, 1rem);
+  right: clamp(0.5rem, 2vw, 1rem);
   z-index: 100;
   display: flex;
   align-items: center;
@@ -1266,6 +1269,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   background-color: var(--text-color-3);
   border-radius: 50%;
   padding: 0.5rem;
+  cursor: pointer;
   transition: 0.3s ease;
 }
 .cart-icon:hover{
@@ -1282,27 +1286,24 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   background-color: var(--gradient-background-4);
   color: white;
   font-size: 0.75rem;
-  padding: 0.4rem 0.6rem;
+  padding: 0.35rem 0.6rem;
   border-radius: 50%;
   font-weight: bold;
 }
 
 /* Cart Sidebar */
 .cart-sidebar {
-  color: var(--gradient-background-1);
   position: fixed;
   top: 0;
-  right: -400px;
-  width: clamp(20rem, 20vw, 30rem);
+  right: -100%;
+  width: clamp(18rem, 80vw, 28rem);
   height: 100%;
-  background-image: linear-gradient(
-    to right,
-    var(--gradient-background-4) 0%,
-    var(--gradient-background-3) 100%
-  );;
-  padding: 0 1rem;
+  background: linear-gradient(to right, var(--gradient-background-4), var(--gradient-background-3));
+  padding: 1rem;
   transition: right 0.3s ease;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
 }
 
 .cart-sidebar.open {
@@ -1311,40 +1312,38 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 
 .cart-sidebar ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0.5rem;
   color: var(--text-color-1);
-  padding: 1rem 0.5rem 0 0.5rem;
-  font-size: clamp(0.8rem, 1.2vw, 1rem);
-  max-height: 60vh; 
+  font-size: clamp(0.8rem, 5vw, 1.2rem);
+  max-height: 60vh;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: #888 #222;
+  scrollbar-color: #888 transparent;
 }
 .cart-sidebar li {
-  margin-bottom: clamp(0, 2vw, 1rem);
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 
 .cart-footer {
-  border-top: 5px solid var(--accent-color);
-  margin-top: clamp(0.2rem, 5vw, 2rem);
-  padding-top: clamp(0.5rem, 5vw, 1rem);
+  border-top: 4px solid var(--accent-color);
+  margin-top: auto;
+  padding-top: 1rem;
   text-align: center;
 }
 .cart-footer p{
-  font-size: clamp(1.3rem, 5vw ,1.5rem);
-  text-align: center;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin: 0.5rem 0;
 }
 .cart-close-btn {
   position: absolute;
-  top: 5px;
-  right: 10px;
-  font-size: clamp(3rem, 8vw, 4rem);
+  top: 0.5rem;
+  right: 1rem;
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
   background: transparent;
   border: none;
   cursor: pointer;
   color: var(--text-color-1);
-  z-index: 1001;
   transition: 0.3s ease;
 }
 
@@ -1357,9 +1356,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 #checkoutBtn,
 #clearCartBtn {
   display: inline-block;
-  margin: 0.5rem;
-  padding: 1rem 1rem;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0.25rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -1398,8 +1396,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 }
 
 .cart-item-image {
-  width: 48px;
-  height: 48px;
+  width: clamp(45px, 6vw, 60px);
+  height: clamp(45px, 6vw, 60px);
   object-fit: cover;
   border-radius: 8px;
 }
@@ -1407,7 +1405,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 .cart-item-info {
   flex-grow: 1;
   padding: 0 0.5rem;
-  font-size: clamp(0.85rem, 1.1vw, 1rem);
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
 }
 
 /* quantity controller */
@@ -1415,67 +1413,27 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  margin-left: auto;
 }
 
 .qty-btn {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   border: none;
   background: #eee;
   border-radius: 4px;
   font-weight: 700;
+  font-size: 1rem;
   cursor: pointer;
   line-height: 1;
+  transition: 0.2s ease;
 }
 
 .qty-btn:hover { 
-  background: #ddd; 
+  transform: scale(1.08);
 }
 
 .qty-num { 
-  min-width: 1.5rem; text-align: center; 
-}
-@media (max-width: 1440px) {
-  .cart-sidebar {
-    padding: 0.5rem;
-  }
-
-  .cart-sidebar ul {
-    font-size: clamp(0.8rem, 1.2vw, 1rem);
-    padding: 1rem 0.5rem 0 0.5rem;
-    padding-bottom: 0;
-  }
-
-  .cart-close-btn {
-    font-size: 2.5rem;
-    top: 0.25rem;
-    right: 0.5rem;
-  }
-
-  #checkoutBtn,
-  #clearCartBtn {
-    font-size: 0.9rem;
-    padding: 0.7rem;
-  }
-
-  .cart-item {
-    gap: 0.5rem;
-    margin: 0.3rem;
-  }
-
-  .cart-item-image {
-    width: 40px;
-    height: 40px;
-  }
-
-  .qty-btn {
-    width: 20px;
-    height: 20px;
-    font-size: 0.9rem;
-  }
-
-  .qty-num {
-    font-size: 0.9rem;
-  }
+  min-width: 1.5rem;
+  text-align: center;
+  font-weight: bold;
 }
