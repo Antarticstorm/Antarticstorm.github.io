@@ -1,271 +1,164 @@
 // Sidebar toggle
 
 function openNav() {
-  const sidenav = document.getElementById("mySidenav");
-  sidenav.classList.add("open");
-  document.getElementById("openBtn").classList.add("hidden");
+  document.getElementById("mySidenav").classList.add("open");
+  document.getElementById("openBtn")?.classList.add("hidden");
 }
-
 function closeNav() {
-  const sidenav = document.getElementById("mySidenav");
-  sidenav.classList.remove("open");
-  document.getElementById("openBtn").classList.remove("hidden");
+  document.getElementById("mySidenav").classList.remove("open");
+  document.getElementById("openBtn")?.classList.remove("hidden");
 }
-
-
-// Close the sidebar if clicked outside
-document.addEventListener("click", (event) => {
-  const sidebar = document.getElementById("mySidenav");
-  const openBtn = document.getElementById("openBtn");
-  const isClickInsideSidebar = sidebar.contains(event.target);
-  const isClickOnOpenBtn = openBtn.contains(event.target);
-  const isSidebarOpen = sidebar.classList.contains("open");
-
-  if (!isClickInsideSidebar && !isClickOnOpenBtn && isSidebarOpen) {
-    closeNav();
-  }
+document.addEventListener("click", e => {
+  const side  = document.getElementById("mySidenav");
+  const open  = document.getElementById("openBtn");
+  if (side.classList.contains("open")
+      && !side.contains(e.target)
+      && !open.contains(e.target)) closeNav();
 });
 
-// Go to top button
-let mybutton = document.getElementById("myBtn");
+const topBtn = document.getElementById("myBtn");
+window.addEventListener("scroll", () =>
+  (document.documentElement.scrollTop || document.body.scrollTop) > 50
+    ? topBtn.classList.add("show")
+    : topBtn.classList.remove("show")
+);
+function topFunction() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
-window.onscroll = function() {
-  scrollFunction();
-};
+/* SLIDESHOW (generic) */
+let touchStartX = 0, touchEndX = 0;
+let slideIndex = 0, slides = [], dots = [], autoTimer = null;
 
-function scrollFunction() {
-  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-    mybutton.classList.add("show");
-  } else {
-    mybutton.classList.remove("show");
-  }
-}
-
-function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
-}
-
-
-// Slideshow
-
-let touchStartX = 0;
-let touchEndX = 0;
-let slideIndex = 0;
-let slides = [];
-let dots = [];
-let autoSlideTimer = null;
-
-function handleSwipe() {
-  const swipeDistance = touchEndX - touchStartX;
-  if (swipeDistance < -50) {
-    plusSlides(1); // swipe left
-  } else if (swipeDistance > 50) {
-    plusSlides(-1); // swipe right
-  }
-}
-
-function initSlides() {
-  slides = document.getElementsByClassName("mySlides");
-  const dotContainer = document.getElementById("dotContainer");
-  dotContainer.innerHTML = "";
-  dots = [];
-
-  Array.from(slides).forEach((slide, i) => {
-    const dot = document.createElement("span");
-    dot.className = "dot";
-    dot.addEventListener("click", () => currentSlide(i));
-    dotContainer.appendChild(dot);
-    dots.push(dot);
-  });
-}
-
-function showSlide(index) {
-  if (!slides || slides.length === 0) return;
-
-  if (index >= slides.length) slideIndex = 0;
-  if (index < 0) slideIndex = slides.length - 1;
-
-  Array.from(slides).forEach((slide) => {
-    slide.classList.remove("active");
-  });
-
-  dots.forEach((dot) => dot.classList.remove("active"));
-
+function showSlide(i) {
+  if (!slides.length) return;
+  if (i >= slides.length) slideIndex = 0;
+  if (i < 0)             slideIndex = slides.length - 1;
+  slides.forEach(s => s.classList.remove("active"));
+  dots.forEach(d  => d .classList.remove("active"));
   slides[slideIndex].classList.add("active");
   dots[slideIndex].classList.add("active");
 }
-
-function plusSlides(position) {
-  clearTimeout(autoSlideTimer);
-  slideIndex += position;
-  showSlide(slideIndex);
-  autoSlideTimer = setTimeout(showSlides, 5000);
-}
-
-function currentSlide(index) {
-  clearTimeout(autoSlideTimer);
-  slideIndex = index;
-  showSlide(slideIndex);
-  autoSlideTimer = setTimeout(showSlides, 5000);
-}
-
-function showSlides() {
-  slideIndex++;
-  showSlide(slideIndex);
-  autoSlideTimer = setTimeout(showSlides, 5000);
-}
-
- // DOM Ready
-document.addEventListener("DOMContentLoaded", () => {
-  initSlides();
-  showSlide(slideIndex);
-  autoSlideTimer = setTimeout(showSlides, 5000);
-
-  const slideshowContainer = document.querySelector(".slideshow");
-  slideshowContainer?.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
+function plusSlides(n) { clearTimeout(autoTimer); slideIndex += n; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
+function currentSlide(i){ clearTimeout(autoTimer); slideIndex = i; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
+function autoPlay()     { slideIndex++; showSlide(slideIndex); autoTimer = setTimeout(autoPlay, 5000); }
+function initSlides() {
+  slides = [...document.getElementsByClassName("mySlides")];
+  dots.length = 0;
+  const dotBox = document.getElementById("dotContainer");
+  dotBox.innerHTML = "";
+  slides.forEach((_, i) => {
+    const d = document.createElement("span");
+    d.className = "dot";
+    d.onclick = () => currentSlide(i);
+    dotBox.appendChild(d);
+    dots.push(d);
   });
-  slideshowContainer?.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    handleSwipe();
-  });
-
-  const backButton = document.getElementById("backButton");
-  backButton?.addEventListener("click", (event) => {
-    event.preventDefault();
-    window.history.back();
-  });
-
-// Team GO Rocket Slider
-let rocketSlides = [];
-let rocketIndex = 0;
-
-function showRocketSlide(index) {
-  rocketSlides.forEach(slide => slide.classList.remove("active"));
-  if (index >= rocketSlides.length) rocketIndex = 0;
-  if (index < 0) rocketIndex = rocketSlides.length - 1;
-  rocketSlides[rocketIndex].classList.add("active");
 }
 
-function nextRocketSlide() {
-  rocketIndex++;
-  showRocketSlide(rocketIndex);
+/* GYM‑LEADER SLIDER */
+let gymSlides = [], gymIndex = 0;
+function showGymSlide(i) {
+  if (!gymSlides.length) return;
+  if (i >= gymSlides.length) gymIndex = 0;
+  if (i < 0)                gymIndex = gymSlides.length - 1;
+  gymSlides.forEach(s => s.classList.remove("active"));
+  gymSlides[gymIndex].classList.add("active");
 }
+function nextGymSlide() { gymIndex++; showGymSlide(gymIndex); }
+function prevGymSlide() { gymIndex--; showGymSlide(gymIndex); }
 
-function prevRocketSlide() {
-  rocketIndex--;
-  showRocketSlide(rocketIndex);
-}
-
-  // Initialize Team GO Rocket slider
-  rocketSlides = Array.from(document.querySelectorAll(".rocket-slide"));
-  showRocketSlide(rocketIndex);
-
-  document.getElementById("rocketNextBtn")?.addEventListener("click", nextRocketSlide);
-  document.getElementById("rocketPrevBtn")?.addEventListener("click", prevRocketSlide);
-
-  // Touch events for Team GO Rocket slider
-  const rocketContainer = document.querySelector(".rocket-slider");
-  rocketContainer?.addEventListener("touchstart", (e) => {
-    touchStartX = e.changedTouches[0].screenX;
-  });
-  rocketContainer?.addEventListener("touchend", (e) => {
-    touchEndX = e.changedTouches[0].screenX;
-    const swipeDistance = touchEndX - touchStartX;
-    if (swipeDistance < -50) nextRocketSlide();
-    else if (swipeDistance > 50) prevRocketSlide();
-  });
-});
-
-// Newsletter Subscription
-
+/* NEWSLETTER */
 function validateAndSubscribe() {
-  const emailInput = document.getElementById('emailInput');
-  const email = emailInput.value.trim();
-  const subscribeBtn = document.getElementById('subscribe-text');
-  const toast = document.getElementById('toast');
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  if (!emailRegex.test(email)) {
-    alert('Please enter a valid email address.');
-    emailInput.focus();
-    return;
-  }
-
-  // Update subscribe button
-  subscribeBtn.textContent = 'Subscribed';
-  subscribeBtn.style.cursor = 'default';
-  subscribeBtn.disabled = true;
-  emailInput.disabled = true;
-
-  // Show toast
+  const emailInput = document.getElementById("emailInput");
+  const email      = emailInput.value.trim();
+  const btn        = document.getElementById("subscribe-text");
+  const re         = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+  if (!re.test(email)) { alert("Please enter a valid email."); emailInput.focus(); return; }
+  btn.textContent = "Subscribed"; btn.disabled = true; btn.style.cursor = "default"; emailInput.disabled = true;
   showToast("🎉 You’re now subscribed!");
 }
-
-function showToast(message = "Subscribed successfully!") {
+function showToast(msg="Subscribed successfully!") {
   const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.add("show");
-
-  setTimeout(() => {
-    toast.classList.remove("show");
-  }, 6000);
+  toast.textContent = msg; toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 6000);
 }
 
-// Register
-const registerForm = document.getElementById("registerForm");
-if (registerForm) {
-  registerForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const username = document.getElementById("regUsername").value;
-    const password = document.getElementById("regPassword").value;
-
-    localStorage.setItem("registeredUsername", username);
-    localStorage.setItem("registeredPassword", password);
-
-    alert("Registered successfully!");
-    window.location.href = "login.html";
-  });
-}
-
-// Password toggle
-function togglePassword() {
-  const passwordInput = document.getElementById("password");
-  const type = passwordInput.getAttribute("type");
-  passwordInput.setAttribute("type", type === "password" ? "text" : "password");
-}
-
-// Login
-const loginForm = document.getElementById("loginForm");
-if (loginForm) {
-  loginForm.addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-
-    const storedUsername = localStorage.getItem("registeredUsername");
-    const storedPassword = localStorage.getItem("registeredPassword");
-
-    if (username === storedUsername && password === storedPassword) {
-      window.location.href = "index.html"; 
-    } else {
-      let errorMsg = document.getElementById("loginError");
-      if (!errorMsg) {
-        errorMsg = document.createElement("p");
-        errorMsg.id = "loginError";
-        errorMsg.style.color = "red";
-        loginForm.appendChild(errorMsg);
-      }
-      errorMsg.textContent = "Invalid username or password.";
-    }
-  });
-}
-document.getElementById("forgotForm").addEventListener("submit", function(e) {
+/* AUTH (register / login / forgot) */
+document.getElementById("registerForm")?.addEventListener("submit", e => {
   e.preventDefault();
-  alert("Password reset link sent!");
-  window.location.href = "login.html";
+  localStorage.setItem("registeredUsername", document.getElementById("regUsername").value);
+  localStorage.setItem("registeredPassword", document.getElementById("regPassword").value);
+  alert("Registered successfully!"); window.location.href = "login.html";
+});
+function togglePassword() {
+  const pw = document.getElementById("password");
+  pw.type = pw.type === "password" ? "text" : "password";
+}
+document.getElementById("loginForm")?.addEventListener("submit", e => {
+  e.preventDefault();
+  const u = document.getElementById("username").value;
+  const p = document.getElementById("password").value;
+  if (u === localStorage.getItem("registeredUsername") &&
+      p === localStorage.getItem("registeredPassword")) {
+    window.location.href = "index.html";
+  } else {
+    let err = document.getElementById("loginError");
+    if (!err) { err = document.createElement("p"); err.id = "loginError"; err.style.color = "red"; e.target.appendChild(err); }
+    err.textContent = "Invalid username or password.";
+  }
+});
+document.getElementById("forgotForm")?.addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Password reset link sent!"); window.location.href = "login.html";
+});
+
+/* SHOP – PRODUCT CARDS  */
+const products = [
+  { title:"Moisten Sale",     price:"Php 500", image:"Images/Logo.png" },
+  { title:"Great Ball Pack",  price:"Php 350", image:"Images/Logo.png" },
+  { title:"Ultra Box",        price:"Php 900", image:"Images/Logo.png" },
+  { title:"Lucky Egg Bundle", price:"Php 400", image:"Images/Logo.png" },
+  { title:"Incense Set",      price:"Php 600", image:"Images/Logo.png" },
+  { title:"Rocket Radar",     price:"Php 200", image:"Images/Logo.png" },
+  { title:"Egg Incubator",    price:"Php 700", image:"Images/Logo.png" },
+  { title:"Raid Pass",        price:"Php 150", image:"Images/Logo.png" },
+  { title:"Lure Module",      price:"Php 450", image:"Images/Logo.png" }
+];
+
+/* DOM READY – INITIALISE EVERYTHING */
+document.addEventListener("DOMContentLoaded", () => {
+  /* 1. Slideshow (if present) */
+  if (document.getElementById("dotContainer")) {
+    initSlides();
+    showSlide(slideIndex);
+    autoTimer = setTimeout(autoPlay, 5000);
+  }
+
+  /* 2. Gym‑slider (only if slides exist) */
+  gymSlides = [...document.querySelectorAll(".gym-slide")];
+  if (gymSlides.length) {
+    showGymSlide(gymIndex);
+    document.getElementById("gymNextBtn")?.addEventListener("click", nextGymSlide);
+    document.getElementById("gymPrevBtn")?.addEventListener("click", prevGymSlide);
+    document.querySelector(".gym-slider")?.addEventListener("touchstart", e => touchStartX = e.changedTouches[0].screenX);
+    document.querySelector(".gym-slider")?.addEventListener("touchend",   e => {
+      touchEndX = e.changedTouches[0].screenX;
+      const d = touchEndX - touchStartX;
+      if (d < -50) nextGymSlide();
+      if (d >  50) prevGymSlide();
+    });
+  }
+
+  /* 3. Shop products */
+  const list = document.getElementById("product-list");
+  if (list) {
+    products.forEach(({title, price, image}) =>
+      list.insertAdjacentHTML("beforeend", `
+        <div class="product-container">
+          <img src="${image}" alt="${title}" class="product-image">
+          <div class="product-info"><span class="item-title">${title}</span></div>
+          <div class="button-wrapper"><button class="buy-button" type="button">${price}</button></div>
+        </div>
+      `)
+    );
+  }
 });
