@@ -258,6 +258,7 @@ if (forgotForm) {
 //LOGOUT
 function logout() {
   localStorage.setItem("isLoggedIn", "false");
+  localStorage.removeItem("cart");
   window.location.href = "index.html";
 }
 
