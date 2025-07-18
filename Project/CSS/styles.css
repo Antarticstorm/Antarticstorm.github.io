@@ -231,6 +231,7 @@ body {
   border: none;
   border-radius: 6px;
   background: red;
+  box-shadow: 4px 4px 0 rgb(117, 0, 0);
   color: var(--text-color-1);
   cursor: pointer;
   transition: transform 0.2s ease, background 0.3s ease;
