@@ -125,8 +125,7 @@ let slideIndex = 0, slides = [], dots = [], autoTimer = null;
 
 function showSlide(i) {
   if (!slides.length) return;
-  if (i >= slides.length) slideIndex = 0;
-  if (i < 0)             slideIndex = slides.length - 1;
+  slideIndex = (i + slides.length) % slides.length;
   slides.forEach(s => s.classList.remove("active"));
   dots.forEach(d => d.classList.remove("active"));
   slides[slideIndex].classList.add("active");
@@ -153,8 +152,7 @@ function initSlides() {
 let gymSlides = [], gymIndex = 0;
 function showGymSlide(i) {
   if (!gymSlides.length) return;
-  if (i >= gymSlides.length) gymIndex = 0;
-  if (i < 0)                gymIndex = gymSlides.length - 1;
+  gymIndex = (i + gymSlides.length) % gymSlides.length;
   gymSlides.forEach(s => s.classList.remove("active"));
   gymSlides[gymIndex].classList.add("active");
 }
@@ -163,19 +161,28 @@ function prevGymSlide() { gymIndex--; showGymSlide(gymIndex); }
 
 /* NEWSLETTER */
 function validateAndSubscribe() {
-  const emailInput = document.getElementById("emailInput");
   const email = emailInput.value.trim();
-  const btn = document.getElementById("subscribe-text");
-  const re         = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) { alert("Please enter a valid email."); emailInput.focus(); return; }
-  btn.textContent = "Subscribed"; btn.disabled = true; btn.style.cursor = "default"; emailInput.disabled = true;
-  showToast("🎉 You’re now subscribed!");
+  const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+  toast.textContent = isValid
+    ? "🎉 Subscribed successfully!"
+    : "❌ Please enter a valid email.";
+  toast.style.backgroundColor = isValid ? "#2ecc71" : "#e74c3c";
+
+  toast.style.opacity = "1";
+  toast.style.transform = "translateX(-50%) translateY(0%)";
+
+  if (isValid) {
+    emailInput.disabled = true;
+    subscribeBtn.disabled = true;
+  }
+
+  setTimeout(() => {
+    toast.style.opacity = "0";
+    toast.style.transform = "translateX(-50%) translateY(100%)";
+  }, 5000);
 }
-function showToast(msg = "Subscribed successfully!") {
-  const toast = document.getElementById("toast");
-  toast.textContent = msg; toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 6000);
-}
+
 
 /* AUTH (register / login / forgot) */
 
@@ -198,15 +205,6 @@ document.getElementById("registerForm")?.addEventListener("submit", function (e)
   alert("Registered successfully!");
   window.location.href = "login.html";
 });
-
-// TOGGLE PASSWORD VISIBILITY
-document.querySelectorAll(".toggle-password").forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const target = document.getElementById(btn.dataset.target);
-    target.type = target.type === "password" ? "text" : "password";
-  });
-});
-
 
 //PASSWORD VISIBILITY 
 document.querySelectorAll(".toggle-password").forEach((btn) => {

@@ -1,17 +1,29 @@
 /* Background Image */
 .background-image {
-  position:fixed;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-image: url("../Images/photos/PokemonGo.jpg");
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #000;
+  z-index: -1;
+}
+
+/* Blurred overlay */
+.blur-overlay {
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url("../Images/photos/PokemonGo.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.3);
   z-index: -1;
 }
-
 
 /* Login Page */
  .whole-login-page {
@@ -35,7 +47,7 @@
   max-width: 600px;
   margin: auto;
   background-color: var(--gradient-background-1);
-  border: 1px solid var(--border-color);
+  border: 3px solid var(--border-color);
   border-radius: 0.5rem;
   padding: clamp(1rem, 4vw, 2rem);
   box-shadow: 0 5px 10px var(--text-color-2);

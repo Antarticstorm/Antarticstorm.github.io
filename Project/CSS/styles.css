@@ -703,7 +703,6 @@ body {
 /* News letter */
 
 .newsletter {
-  padding: clamp(2rem, 5vw, 3rem);
   background-color: var(--gradient-background-1);
   padding-top: clamp(2rem, 5vw, 5rem);
   padding-bottom: clamp(3rem, 5vw, 5rem);
@@ -783,8 +782,6 @@ form .box:focus {
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 0 15px var(--text-color-4);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 #subscribe-text:hover {
@@ -806,7 +803,6 @@ form .box:focus {
   font-weight: bold;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  pointer-events: none;
   transition: all 0.4s ease;
   z-index: 9999;
 }
