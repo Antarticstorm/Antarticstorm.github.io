@@ -48,13 +48,13 @@ body {
   );
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: clamp(1.5rem, 5vw, 4rem);
+  padding-top: clamp(1.5rem, 5vw, 3rem);
 }
 
 .sidenav a {
   padding: clamp(0.4rem, 1.2vw, 0.6rem) clamp(0.8rem, 2vw, 1rem);
   font-size: clamp(0.7rem, 3vw, 0.9rem);
-  margin: 1rem auto 0;
+  margin: 0.5rem auto;
   color: var(--text-color-1);
   text-decoration: none;
   font-weight: bold;
@@ -161,10 +161,9 @@ body {
 
 /* Login / Register Buttons */
 .action-buttons {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
   align-items: center;
   transition: 0.5s;
 }
@@ -212,7 +211,7 @@ body {
   background-color: var(--gradient-background-3);
   padding: 0.4rem 0.8rem;
   border-radius: 6px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
   text-align: center;
   box-sizing: border-box;
@@ -227,7 +226,7 @@ body {
 /* Logout Button */
 .logout-btn {
   padding: 0.6rem 1rem;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: bold;
   border: none;
   border-radius: 6px;
@@ -264,7 +263,7 @@ body {
   .sidenav a {
     font-size: 0.8rem;
     padding: 0.3rem 0.5rem;
-    margin: 0.6rem auto;
+    margin: 0.5rem auto;
     max-width: 130px;
   }
 }
