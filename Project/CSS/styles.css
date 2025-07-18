@@ -909,9 +909,12 @@ form .box:focus {
   color: var(--text-color-1);
   padding: clamp(0.5rem, 2vw, 1rem) 0;
   transition: 0.3s ease;
-  width: max-content; 
-  word-wrap: break-word;
+  width: 100%;
+  max-width: 100%;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
+
 .square a:hover {
   transform: scale(1.05);
 }
