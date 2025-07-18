@@ -111,8 +111,8 @@ body {
 
 /* Nav Toggle Icon */
 .img-wrapper {
-  width: clamp(40px, 6vw, 50px);
-  height: clamp(40px, 6vw, 50px);
+  width: clamp(50px, 7vw, 60px);
+  height: clamp(50px, 7vw, 60px);
   background-color: var(--gradient-background-1);
   display: inline-flex;
   align-items: center;
@@ -122,13 +122,14 @@ body {
   left: clamp(5px, 2vw, 10px);
   cursor: pointer;
   border-radius: 20px;
-  border: solid 0.15rem var(--border-color);
-  transition: 0.2s ease;
+  border: solid 0.2rem;
+  border-color: var(--border-color);
+  transition: 0.2s  ease;
 }
 
 .img-wrapper img {
-  width: clamp(25px, 6vw, 35px);
-  height: clamp(25px, 6vw, 35px);
+  width: clamp(30px, 7vw, 40px);
+  height: clamp(30px, 7vw, 40px);
   background-color: var(--text-color-1);
   border-radius: 5px;
 }
@@ -264,11 +265,7 @@ body {
     font-size: 0.8rem;
     padding: 0.3rem 0.5rem;
     margin: 0.6rem auto;
-    max-width: 110px;
-  }
-
-  .nav-logo {
-    max-width: 80px;
+    max-width: 130px;
   }
 }
 
