@@ -912,11 +912,10 @@ form .box:focus {
   width: 100%;
   max-width: 100%;
   word-break: break-word;
-  overflow-wrap: anywhere;
 }
 
 .square a:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 .square a i {
