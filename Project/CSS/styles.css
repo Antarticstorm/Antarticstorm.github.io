@@ -514,6 +514,12 @@ body {
   box-shadow: 15px 15px 0px var(--text-color-3), 
               -15px -15px 0px var(--gradient-background-4);
 }
+
+.content-side-image.about-us{
+  margin-bottom: 0rem; 
+  padding-bottom: 0rem;
+}
+
 @media (max-width: 600px) {
   .content-side-image {
     flex-direction: column;
@@ -1040,6 +1046,10 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   box-sizing: border-box;
 }
 
+.shop-container.about-us{
+  padding: clamp(1rem, 12vw, 3rem) 1rem;
+}
+
 .shop-title {
   font-size: clamp(2rem, 5vw, 4rem);
   font-weight: bold;
@@ -1054,6 +1064,11 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   box-shadow: var(--gradient-background-4) 12px 12px 0px;
   transition: 0.3s;
 }
+
+.shop-title.about-us {
+  font-size: clamp(2rem, 5vw, 5rem);
+}
+
 .shop-title:hover {
   box-shadow: var(--gradient-background-4) 20px 20px 0px;
   transform: translate(-5px, -3px);
@@ -1494,4 +1509,16 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 .login-popup.show {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+/* About us specific layout */
+h2.about-us-h2{
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.about-us-small-logo{
+  text-align: center;
+}
+.contributors-image{
+  width: 50%;
 }
