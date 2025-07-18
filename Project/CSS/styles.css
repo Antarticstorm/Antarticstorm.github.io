@@ -910,6 +910,7 @@ form .box:focus {
   padding: clamp(0.5rem, 2vw, 1rem) 0;
   transition: 0.3s ease;
   width: max-content; 
+  word-wrap: break-word;
 }
 .square a:hover {
   transform: scale(1.05);
