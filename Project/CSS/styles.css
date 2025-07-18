@@ -249,7 +249,7 @@ body {
   width: 30%;
   max-width: 150px;
   min-width: 110px;
-  margin: 20px auto;
+  margin: 1rem auto;
   transition: width 0.3s ease;
 }
 
