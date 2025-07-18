@@ -1453,3 +1453,45 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   text-align: center;
   font-weight: bold;
 }
+
+/* Cart-Popup */
+.cart-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: #2ecc71;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 2rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+.cart-popup.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Login-Popup */
+
+.login-popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background: #e74c3c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 2rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.login-popup.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

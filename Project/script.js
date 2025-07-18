@@ -22,13 +22,29 @@ function createCartItemHTML(item, index) {
     </div>
   `;
 }
-
-
 // Changing cart quantity
 function changeQty(index, delta) {
   cart[index].qty += delta;
   if (cart[index].qty < 1) cart.splice(index, 1);
   renderCart();
+}
+
+// Cannot use shopping cart if not logged in
+function addToCart(title, price, image) {
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  if (!isLoggedIn) {
+    showLoginPopup();
+    return;
+  }
+
+  const existing = cart.find(i => i.title === title);
+  if (existing) {
+    existing.qty += 1;
+  } else {
+    cart.push({ title, price, image, qty: 1 });
+  }
+  renderCart();
+  showAddToCartPopup(title);
 }
 
 
@@ -57,15 +73,38 @@ function renderCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+// LoginPopup
+function showLoginPopup() {
+  const popup = document.createElement("div");
+  popup.className = "login-popup";
+  popup.textContent = "🛑 Please log in to add items to cart.";
 
-function addToCart(title, price, image) {
-  const existing = cart.find(i => i.title === title);
-  if (existing) {
-    existing.qty += 1;
-  } else {
-    cart.push({ title, price, image, qty: 1 });
-  }
-  renderCart();
+  document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.classList.add("show");
+    setTimeout(() => {
+      popup.classList.remove("show");
+      setTimeout(() => popup.remove(), 300);
+    }, 2000);
+  }, 10);
+}
+
+// AddtoCartPopup
+function showAddToCartPopup(title) {
+  const popup = document.createElement("div");
+  popup.className = "cart-popup";
+  popup.textContent = `🛒 ${title} added to cart!`;
+
+  document.body.appendChild(popup);
+
+  setTimeout(() => {
+    popup.classList.add("show");
+    setTimeout(() => {
+      popup.classList.remove("show");
+      setTimeout(() => popup.remove(), 300);
+    }, 2000);
+  }, 10);
 }
 
 function removeFromCart(index) {
