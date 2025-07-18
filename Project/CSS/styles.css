@@ -54,14 +54,14 @@ body {
 .sidenav a {
   padding: clamp(0.5rem, 2vw, 1rem) clamp(0.5rem, 4vw, 1rem);
   text-decoration: none;
-  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  font-size: clamp(0.8rem, 3vw, 1.2rem);
   color: var(--text-color-1);
   display: block;
   transition: 0.3s;
   background-color: var(--accent-color);
   border: var(--border-color) solid .2rem;
   border-radius: 100px;
-  margin: clamp(0.5rem, 2vw, 1rem);
+  margin: clamp(0.8rem, 2vw, 1rem);
   font-weight: bold;
   text-align: center;
   box-shadow: 5px 5px 0px var(--text-color-4);

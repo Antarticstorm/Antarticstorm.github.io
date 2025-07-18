@@ -10,6 +10,34 @@
 </head>
     <body>
     
+    <!-- Navigation Bar -->
+    <div id="mySidenav" class="sidenav">
+        <button class="closebtn" onclick="closeNav()">&times;</button>
+        <div class="logo-container">
+        <img src="Images/Logo.png" alt="Logo" class="nav-logo" />
+        </div>
+
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="shop.html">Shop</a>
+
+        <div class="action-buttons">
+            <a href="register.html" class="register-btn">Register</a>
+            <a href="login.html" class="login-btn">Login</a>
+        </div>
+        <div class="status-container">
+            <div class="login-status" id="loginStatus"></div>
+            <button onclick="logout()" class="logout-btn">Logout</button>
+        </div>
+    </div>
+    <div id="openBtn" class="openbtn">
+        <span onclick="openNav()">
+            <span class="img-wrapper">
+                <img src="Images/SVG/Sidebar.svg" alt="Side bar">
+            </span>
+        </span>
+    </div>
+
     <!-- Background Img and Blur -->
     <div class="background-image"></div>
     <div class="blur-overlay"></div>
@@ -37,14 +65,11 @@
                 <p id="loginError" style="color: red;"></p>
                 <button type="submit" class="login-button">Login</button>
 
-                <div class="login-links">
-                    <a href="register.html"> Register</a>
-                </div>
+                    <footer class="login-footer">
+                        <p>Don't have an account? <a href="register.html">Register here</a></p>
+                    </footer>
                 </form>
             </div>
-            <footer class="login-footer">
-                <p>Don't have an account? <a href="register.html">Register here</a></p>
-            </footer>
         </section>
     </Section>
 

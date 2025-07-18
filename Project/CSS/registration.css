@@ -109,24 +109,6 @@ input[type="email"] {
   user-select: none;
 }
 
-.login-btn {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: var(--accent-color);
-  color: var(--text-color-1);
-  border: none;
-  border-radius: 4px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.login-btn:hover {
-  background-color: var(--gradient-background-4);
-  transform: scale(1.03);
-  color: var(--text-color-2);
-}
-
 .login-links {
   margin-top: 1rem;
   display: flex;
@@ -149,9 +131,8 @@ input[type="email"] {
   text-align: center;
   margin-top: 1rem;
   font-size: 0.75rem;
-  color: var(--text-color-1);
+  color: var(--text-color-2);
   transition: 0.5s ease;
-  text-shadow: 2px 2px 5px black;
 }
 
 .login-footer a {
