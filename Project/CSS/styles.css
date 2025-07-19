@@ -524,11 +524,6 @@ body {
               -15px -15px 0px var(--gradient-background-4);
 }
 
-.content-side-image.about-us{
-  margin-bottom: 0rem; 
-  padding-bottom: 0rem;
-}
-
 @media (max-width: 600px) {
   .content-side-image {
     flex-direction: column;
@@ -1519,10 +1514,9 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 }
 
 /* About us specific layout */
-h2.about-us-h2{
-  font-size: clamp(2rem, 5vw, 3rem);
+.content-side-image .First-paragraph .about-us-h2 h2 {
+  font-size: clamp(2rem,5vw, 6rem);
 }
-
 .about-us-small-logo{
   text-align: center;
 }
