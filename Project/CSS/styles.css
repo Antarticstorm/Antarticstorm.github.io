@@ -799,7 +799,7 @@ form .box:focus {
   transform: translateY(-2px) scale(1.05);
 }
 
-.toast {
+#toast {
   position: fixed;
   bottom: 2rem;
   left: 50%;
@@ -812,7 +812,7 @@ form .box:focus {
   font-weight: bold;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   opacity: 0;
-  transition: all 0.4s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 9999;
 }
 

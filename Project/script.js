@@ -127,20 +127,36 @@ function logout() {
   window.location.href = "index.html";
 } 
 
+/* Newsletter */
 function validateAndSubscribe() {
+  const emailInput = document.getElementById("emailInput");
+  const toast = document.getElementById("toast");
+  const subscribeText = document.getElementById("subscribe-text");
   const email = emailInput.value.trim();
   const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  toast.textContent = isValid ? "🎉 Subscribed successfully!" : "❌ Please enter a valid email.";
+
+  toast.textContent = isValid
+    ? "🎉 Subscribed successfully!"
+    : "❌ Please enter a valid email.";
+
   toast.style.backgroundColor = isValid ? "#2ecc71" : "#e74c3c";
+
+  void toast.offsetHeight;
+
   toast.style.opacity = "1";
   toast.style.transform = "translateX(-50%) translateY(0%)";
+  toast.style.pointerEvents = "auto";
+
   if (isValid) {
     emailInput.disabled = true;
-    subscribeBtn.disabled = true;
+    subscribeText.disabled = true;
+    subscribeText.textContent = "Subscribed";
   }
+
   setTimeout(() => {
     toast.style.opacity = "0";
     toast.style.transform = "translateX(-50%) translateY(100%)";
+    toast.style.pointerEvents = "none";
   }, 5000);
 }
 
