@@ -15,14 +15,16 @@
     --gradient-background-2: #0f224a;
     --gradient-background-3:#7bcda4;
     --gradient-background-4:#17c6c0;
+
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
 }
 
 body {
-  font-family: Arial, sans-serif;
+font-family:  Arial, 'Segoe UI', sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -49,6 +51,7 @@ body {
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: clamp(1.5rem, 5vw, 3rem);
+  will-change: transform;
 }
 
 .sidenav a {
@@ -94,7 +97,7 @@ body {
   background: none;
   border: none;
   color: var(--text-color-1);
-  z-index: 2;
+  z-index: 10;
   transition: transform 0.3s ease, color 0.3s ease;
   cursor: pointer;
 }
@@ -277,9 +280,6 @@ body {
   max-width: 100%;
   margin: 0 auto;
   border: 10px solid var(--border-color);
-  border-top:var(--border-color); ;
-  border-left: var(--border-color);
-  border-right: var(--border-color);
 }
 
 .mySlides {
@@ -380,7 +380,7 @@ body {
   display: inline-block;
   transition: 0.6s ease;
 }
-.slideshow .active,
+.slideshow .dot.active,
 .dot:hover {
   background-color: var(--dot-hover);
 }
@@ -482,7 +482,7 @@ body {
 
 .content-side-image .image,
 .content-side-image .First-paragraph {
-  flex: 1 1 45%;
+  flex: 1;
   max-width: 100%;
 }
 
@@ -596,6 +596,7 @@ body {
 
   .gym-slide img {
     max-width: 80%;
+    aspect-ratio: 16/9;
   }
 }
 
@@ -965,8 +966,8 @@ form .box:focus {
 
 /* Split screen area is the About.html*/
 .split-screen {
-  display: flex;
-  height: 100vh;
+  flex-direction: column;
+  height: auto;
 }
 
 .left, .right {
@@ -1103,9 +1104,6 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   transition: transform 0.2s;
   overflow: hidden;
 }
-.product-container:hover {
-  transform: scale(1.03);
-}
 
 .product-image {
   width: 100%;
@@ -1193,6 +1191,7 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 }
 
 .buy-button:hover {
+  will-change: transform;
   transform: translateY(-2px) scale(1.05);
 }
 
@@ -1325,22 +1324,25 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
 }
 
 /* Cart Sidebar */
-.cart-sidebar {
+
+#cartSidebar {
   position: fixed;
   top: 0;
-  right: -100%;
+  right: 0;
   width: clamp(18rem, 80vw, 28rem);
   height: 100%;
   background: linear-gradient(to right, var(--gradient-background-4), var(--gradient-background-3));
-  padding: 1rem;
-  transition: right 0.3s ease;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
   z-index: 1000;
-  display: flex;
+  padding: 1rem;
   flex-direction: column;
+  overflow-y: auto;
+  will-change: transform;
 }
 
-.cart-sidebar.open {
-  right: 0;
+#cartSidebar.open {
+  transform: translateX(0);
 }
 
 .cart-sidebar ul {
@@ -1384,6 +1386,8 @@ background-image: url(https://i.pinimg.com/736x/b2/60/94/b26094970505bcd59c2e5fe
   transform: scale(1.2);
   color: var(--text-color-2);
 }
+
+
 
 /* checkout / clear / X */
 #checkoutBtn,
